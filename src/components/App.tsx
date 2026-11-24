@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   Shield,
   Tent,
@@ -7,10 +7,13 @@ import {
   Sparkles,
   CheckCircle2,
   MapPin,
+  Download,
+  Upload,
+  Star,
 } from 'lucide-react';
 import programsData from '../data/programs.json';
 import { SEED_ID_CAMPS } from '../data/seedCamps';
-import { SoccerProgram } from '../types/program';
+import { ClassNeedScore, SoccerProgram } from '../types/program';
 import {
   AthleteProfile,
   CampStatus,
@@ -19,12 +22,12 @@ import {
   OutreachStatus,
 } from '../types/recruiting';
 import { DivisionFilter, DivisionTabs } from './DivisionTabs';
-import { FilterBar, FilterState } from './FilterBar';
+import { FilterBar, FilterState, SortField } from './FilterBar';
 import { ProgramTable } from './ProgramTable';
 import { ProgramDetailDrawer } from './ProgramDetailDrawer';
 import { IdCampTab } from './IdCampTab';
 import { OutreachTrackerTab } from './OutreachTrackerTab';
-import { EmailTemplateModal } from './EmailTemplateModal';
+import { EmailTemplateModal, getLocalIsoDate } from './EmailTemplateModal';
 
 type MainWorkspaceTab = 'programs' | 'camps' | 'outreach';
 
@@ -44,6 +47,8 @@ const DEFAULT_FILTERS: FilterState = {
   maxNetPrice: 45000,
   withinFourHoursOfDelco: false,
   favoritesOnly: false,
+  sortBy: 'favorites',
+  sortAsc: true,
 };
 
 const DEFAULT_ATHLETE_PROFILE: AthleteProfile = {
@@ -96,14 +101,26 @@ const INITIAL_OUTREACH_LOGS: OutreachLog[] = [
   },
 ];
 
+const NEED_SCORE_WEIGHT: Record<ClassNeedScore, number> = {
+  High: 1,
+  Medium: 2,
+  Low: 3,
+  Unverified: 4,
+};
+
 export const App: React.FC = () => {
   const programs = programsData as SoccerProgram[];
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const [activeTab, setActiveTab] = useState<MainWorkspaceTab>('programs');
   const [selectedDivision, setSelectedDivision] = useState<DivisionFilter>('ALL');
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [drawerProgram, setDrawerProgram] = useState<SoccerProgram | null>(null);
   const [modalProgram, setModalProgram] = useState<SoccerProgram | null>(null);
+  const [modalCamp, setModalCamp] = useState<IdCamp | null>(null);
+  const [modalTemplateId, setModalTemplateId] = useState<string | undefined>(
+    undefined
+  );
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
 
   // Persisted State (merges any newly discovered SEED_ID_CAMPS automatically)
@@ -170,7 +187,9 @@ export const App: React.FC = () => {
       return {
         ...parsed,
         playerName:
-          parsed.playerName === 'Alex Vickers' ? 'Zach Vickers' : parsed.playerName,
+          parsed.playerName === 'Alex Vickers'
+            ? 'Zach Vickers'
+            : parsed.playerName,
         clubName:
           parsed.clubName === 'FC Delco' ? 'Delaware FC' : parsed.clubName,
       };
@@ -216,7 +235,7 @@ export const App: React.FC = () => {
   }, [favoriteProgramIds]);
 
   const filteredPrograms = useMemo(() => {
-    return programs.filter((program) => {
+    const matched = programs.filter((program) => {
       if (
         filters.favoritesOnly &&
         !favoriteProgramIds.includes(program.id)
@@ -257,15 +276,44 @@ export const App: React.FC = () => {
       }
       return true;
     });
-  }, [programs, selectedDivision, filters, favoriteProgramIds]);
 
-  const handleToggleFavorite = (programId: string) => {
-    setFavoriteProgramIds((prev) =>
-      prev.includes(programId)
-        ? prev.filter((id) => id !== programId)
-        : [...prev, programId]
-    );
-  };
+    const dir = filters.sortAsc ? 1 : -1;
+    return [...matched].sort((a, b) => {
+      if (filters.sortBy === 'favorites') {
+        const aFav = favoriteProgramIds.includes(a.id) ? 0 : 1;
+        const bFav = favoriteProgramIds.includes(b.id) ? 0 : 1;
+        if (aFav !== bFav) return aFav - bFav;
+        return (
+          NEED_SCORE_WEIGHT[a.classOf2029NeedScore] -
+          NEED_SCORE_WEIGHT[b.classOf2029NeedScore]
+        );
+      }
+      if (filters.sortBy === 'needScore') {
+        const diff =
+          NEED_SCORE_WEIGHT[a.classOf2029NeedScore] -
+          NEED_SCORE_WEIGHT[b.classOf2029NeedScore];
+        if (diff !== 0) return diff * dir;
+        return a.schoolName.localeCompare(b.schoolName);
+      }
+      if (filters.sortBy === 'driveTime') {
+        const aDrive = a.estimatedDriveHoursFromDelco ?? 99;
+        const bDrive = b.estimatedDriveHoursFromDelco ?? 99;
+        if (aDrive !== bDrive) return (aDrive - bDrive) * dir;
+        return a.schoolName.localeCompare(b.schoolName);
+      }
+      if (filters.sortBy === 'netPrice') {
+        const diff =
+          a.financialProfile.averageNetPrice -
+          b.financialProfile.averageNetPrice;
+        if (diff !== 0) return diff * dir;
+        return a.schoolName.localeCompare(b.schoolName);
+      }
+      if (filters.sortBy === 'schoolName') {
+        return a.schoolName.localeCompare(b.schoolName) * dir;
+      }
+      return 0;
+    });
+  }, [programs, selectedDivision, filters, favoriteProgramIds]);
 
   const outreachCountsByProgram = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -280,8 +328,48 @@ export const App: React.FC = () => {
     [programs]
   );
 
-  const handleOpenDraftModal = (program: SoccerProgram) => {
+  const daysUntilJune15 = useMemo(() => {
+    const today = new Date(`${getLocalIsoDate()}T00:00:00`);
+    const cutoff = new Date('2027-06-15T00:00:00');
+    return Math.max(
+      0,
+      Math.round((cutoff.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+    );
+  }, []);
+
+  const handleSortColumn = (field: SortField) => {
+    setFilters((prev) => ({
+      ...prev,
+      sortBy: field,
+      sortAsc: prev.sortBy === field ? !prev.sortAsc : true,
+    }));
+  };
+
+  const handleToggleFavorite = (programId: string) => {
+    setFavoriteProgramIds((prev) =>
+      prev.includes(programId)
+        ? prev.filter((id) => id !== programId)
+        : [...prev, programId]
+    );
+  };
+
+  const handleOpenDraftModal = (program: SoccerProgram, camp?: IdCamp) => {
     setModalProgram(program);
+    setModalCamp(camp || null);
+    setModalTemplateId(camp ? 'campInquiry' : undefined);
+    setIsEmailModalOpen(true);
+  };
+
+  const handleInquireCamp = (camp: IdCamp) => {
+    const targetProg =
+      (camp.programId && programs.find((p) => p.id === camp.programId)) ||
+      programs.find((p) =>
+        camp.confirmedAttendingColleges?.includes(p.schoolName)
+      ) ||
+      programs[0];
+    setModalProgram(targetProg);
+    setModalCamp(camp);
+    setModalTemplateId('campInquiry');
     setIsEmailModalOpen(true);
   };
 
@@ -292,7 +380,13 @@ export const App: React.FC = () => {
   };
 
   const handleAddCamp = (newCamp: IdCamp) => {
-    setCamps((prev) => [newCamp, ...prev]);
+    setCamps((prev) =>
+      [newCamp, ...prev].sort((a, b) => a.startDate.localeCompare(b.startDate))
+    );
+  };
+
+  const handleDeleteCamp = (campId: string) => {
+    setCamps((prev) => prev.filter((c) => c.id !== campId));
   };
 
   const handleLogOutreach = (log: OutreachLog) => {
@@ -313,6 +407,51 @@ export const App: React.FC = () => {
     setCustomNotes((prev) => ({ ...prev, [programId]: note }));
   };
 
+  const handleExportBackupJson = () => {
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      athleteProfile,
+      favoriteProgramIds,
+      customNotes,
+      campBudgetCeiling,
+      camps,
+      outreachLogs,
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `zach-vickers-2029-recruiting-backup-${getLocalIsoDate()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportBackupJson = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const data = JSON.parse(String(ev.target?.result || '{}'));
+        if (data.athleteProfile) setAthleteProfile(data.athleteProfile);
+        if (Array.isArray(data.favoriteProgramIds))
+          setFavoriteProgramIds(data.favoriteProgramIds);
+        if (data.customNotes && typeof data.customNotes === 'object')
+          setCustomNotes(data.customNotes);
+        if (typeof data.campBudgetCeiling === 'number')
+          setCampBudgetCeiling(data.campBudgetCeiling);
+        if (Array.isArray(data.camps)) setCamps(data.camps);
+        if (Array.isArray(data.outreachLogs)) setOutreachLogs(data.outreachLogs);
+      } catch {
+        alert('Could not parse backup JSON file.');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Top Hero Banner */}
@@ -327,7 +466,8 @@ export const App: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1 rounded-full bg-blue-500/20 px-2.5 py-0.5 text-xs font-semibold text-blue-200 border border-blue-400/30">
                     <Sparkles className="h-3 w-3" />
-                    Class of 2029 ECNL Goalkeeper Engine
+                    {athleteProfile.playerName} &bull; {athleteProfile.clubName}{' '}
+                    ECNL (2029 GK)
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-200 border border-emerald-400/30">
                     <MapPin className="h-3 w-3" />
@@ -346,31 +486,53 @@ export const App: React.FC = () => {
             </div>
 
             {/* KPI Summary Cards */}
-            <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
-              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-xs border border-white/10">
+            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
+              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
                 <div className="text-[11px] font-medium text-blue-200">
                   Regional Programs
                 </div>
-                <div className="mt-0.5 text-xl font-extrabold">{programs.length}</div>
-                <div className="text-[10px] text-slate-300">26 D1 &bull; 21 D2 &bull; 35 D3</div>
+                <div className="mt-0.5 text-xl font-extrabold">
+                  {programs.length}
+                </div>
+                <div className="text-[10px] text-slate-300">
+                  26 D1 &bull; 21 D2 &bull; 35 D3
+                </div>
               </div>
-              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-xs border border-white/10">
+              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
+                <div className="text-[11px] font-medium text-amber-200 flex items-center gap-1">
+                  <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                  Top Favorites
+                </div>
+                <div className="mt-0.5 text-xl font-extrabold text-amber-300">
+                  {favoriteProgramIds.length}
+                </div>
+                <div className="text-[10px] text-slate-300">
+                  Starred Target Schools
+                </div>
+              </div>
+              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
                 <div className="text-[11px] font-medium text-emerald-200">
                   High 2029 GK Need
                 </div>
                 <div className="mt-0.5 text-xl font-extrabold text-emerald-300">
                   {highNeedCount}
                 </div>
-                <div className="text-[10px] text-slate-300">Upperclass Starters</div>
+                <div className="text-[10px] text-slate-300">
+                  Upperclass Starters
+                </div>
               </div>
-              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-xs border border-white/10">
+              <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
                 <div className="text-[11px] font-medium text-amber-200">
                   D1/D2 Direct Contact
                 </div>
                 <div className="mt-0.5 text-base font-extrabold text-amber-300 sm:text-lg">
                   Jun 15, 2027
                 </div>
-                <div className="text-[10px] text-slate-300">ID Camp Exception Active</div>
+                <div className="text-[10px] text-slate-300">
+                  {daysUntilJune15 > 0
+                    ? `${daysUntilJune15} days away`
+                    : 'Direct Contact Open'}
+                </div>
               </div>
             </div>
           </div>
@@ -416,9 +578,36 @@ export const App: React.FC = () => {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-blue-200">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-              <span>Local Persistence Active (localStorage)</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs text-blue-200">
+              <span className="hidden sm:inline-flex items-center gap-1.5 mr-1">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                <span>Auto-Saved Locally</span>
+              </span>
+              <button
+                type="button"
+                onClick={handleExportBackupJson}
+                title="Export Favorites, Notes, Camps & Outreach Backup JSON"
+                className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Backup Data
+              </button>
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                title="Restore Favorites, Notes, Camps & Outreach from Backup JSON"
+                className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-white/20"
+              >
+                <Upload className="h-3.5 w-3.5" />
+                Restore
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="application/json"
+                onChange={handleImportBackupJson}
+                className="hidden"
+              />
             </div>
           </div>
         </div>
@@ -436,11 +625,10 @@ export const App: React.FC = () => {
               />
               <button
                 type="button"
-                onClick={() => {
-                  setModalProgram(filteredPrograms[0] || programs[0]);
-                  setIsEmailModalOpen(true);
-                }}
-                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-blue-900"
+                onClick={() =>
+                  handleOpenDraftModal(filteredPrograms[0] || programs[0])
+                }
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-blue-900"
               >
                 <Mail className="h-4 w-4" />
                 Open GK Email Templates
@@ -461,9 +649,15 @@ export const App: React.FC = () => {
               favoriteProgramIds={favoriteProgramIds}
               outreachCountsByProgram={outreachCountsByProgram}
               customNotesByProgram={customNotes}
+              sortBy={filters.sortBy}
+              sortAsc={filters.sortAsc}
+              onSortColumn={handleSortColumn}
+              onFilterConference={(conf) =>
+                setFilters((prev) => ({ ...prev, searchQuery: conf }))
+              }
               onToggleFavorite={handleToggleFavorite}
               onSelectProgram={(program) => setDrawerProgram(program)}
-              onDraftOutreach={handleOpenDraftModal}
+              onDraftOutreach={(program) => handleOpenDraftModal(program)}
             />
           </div>
         )}
@@ -471,10 +665,14 @@ export const App: React.FC = () => {
         {activeTab === 'camps' && (
           <IdCampTab
             camps={camps}
+            programs={programs}
+            favoriteProgramIds={favoriteProgramIds}
             budgetCeiling={campBudgetCeiling}
             onUpdateBudgetCeiling={setCampBudgetCeiling}
             onUpdateCampStatus={handleUpdateCampStatus}
             onAddCamp={handleAddCamp}
+            onDeleteCamp={handleDeleteCamp}
+            onInquireCamp={handleInquireCamp}
           />
         )}
 
@@ -483,10 +681,7 @@ export const App: React.FC = () => {
             logs={outreachLogs}
             onUpdateStatus={handleUpdateOutreachStatus}
             onDeleteLog={handleDeleteOutreach}
-            onOpenNewEmailModal={() => {
-              setModalProgram(programs[0]);
-              setIsEmailModalOpen(true);
-            }}
+            onOpenNewEmailModal={() => handleOpenDraftModal(programs[0])}
           />
         )}
       </main>
@@ -503,9 +698,9 @@ export const App: React.FC = () => {
         onToggleFavorite={handleToggleFavorite}
         onSaveNote={handleSaveProgramNote}
         onClose={() => setDrawerProgram(null)}
-        onDraftOutreach={(program) => {
+        onDraftOutreach={(program, camp) => {
           setDrawerProgram(null);
-          handleOpenDraftModal(program);
+          handleOpenDraftModal(program, camp);
         }}
       />
 
@@ -513,11 +708,18 @@ export const App: React.FC = () => {
       <EmailTemplateModal
         isOpen={isEmailModalOpen}
         initialProgram={modalProgram}
+        initialCamp={modalCamp}
+        initialTemplateId={modalTemplateId}
         programs={programs}
+        camps={camps}
         athleteProfile={athleteProfile}
         onUpdateAthleteProfile={setAthleteProfile}
         onLogOutreach={handleLogOutreach}
-        onClose={() => setIsEmailModalOpen(false)}
+        onClose={() => {
+          setIsEmailModalOpen(false);
+          setModalCamp(null);
+          setModalTemplateId(undefined);
+        }}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Mail,
   ShieldAlert,
@@ -7,6 +7,8 @@ import {
   Trash2,
   Eye,
   PlusCircle,
+  Download,
+  Search,
 } from 'lucide-react';
 import { OutreachLog, OutreachStatus } from '../types/recruiting';
 
@@ -33,16 +35,69 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
 }) => {
   const [selectedLog, setSelectedLog] = useState<OutreachLog | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [statusFilter, setStatusFilter] = useState<'ALL' | OutreachStatus>('ALL');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredLogs = useMemo(() => {
+    return logs.filter((log) => {
+      if (statusFilter !== 'ALL' && log.status !== statusFilter) return false;
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        return (
+          log.schoolName.toLowerCase().includes(q) ||
+          log.coachName.toLowerCase().includes(q) ||
+          log.subjectLine.toLowerCase().includes(q) ||
+          log.category.toLowerCase().includes(q)
+        );
+      }
+      return true;
+    });
+  }, [logs, statusFilter, searchQuery]);
 
   const handleCopy = (log: OutreachLog) => {
-    navigator.clipboard.writeText(`Subject: ${log.subjectLine}\n\n${log.bodyText}`);
+    navigator.clipboard.writeText(
+      `Subject: ${log.subjectLine}\n\n${log.bodyText}`
+    );
     setCopiedId(log.id);
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  const handleExportCsv = () => {
+    const headers = [
+      'Date',
+      'School',
+      'Division',
+      'Coach Name',
+      'Coach Email',
+      'Category',
+      'Status',
+      'Pre-Contact Rule',
+      'Subject Line',
+    ];
+    const rows = filteredLogs.map((l) => [
+      l.dateSent,
+      `"${l.schoolName.replace(/"/g, '""')}"`,
+      l.division || '',
+      `"${l.coachName.replace(/"/g, '""')}"`,
+      l.coachEmail,
+      l.category,
+      l.status,
+      l.isPreContactRule ? 'Yes' : 'No',
+      `"${l.subjectLine.replace(/"/g, '""')}"`,
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'zach-vickers-2029-outreach-logs.csv';
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
         <div>
           <h3 className="text-base font-bold text-slate-900">
             Coach Outreach &amp; Compliance Log ({logs.length})
@@ -56,29 +111,80 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
             .
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onOpenNewEmailModal}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white hover:bg-blue-900"
-        >
-          <PlusCircle className="h-4 w-4" />
-          New Goalkeeper Outreach Email
-        </button>
+        <div className="flex flex-wrap items-center gap-2">
+          {logs.length > 0 && (
+            <button
+              type="button"
+              onClick={handleExportCsv}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Export CSV
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={onOpenNewEmailModal}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white hover:bg-blue-900"
+          >
+            <PlusCircle className="h-4 w-4" />
+            New Goalkeeper Outreach Email
+          </button>
+        </div>
       </div>
 
-      {logs.length === 0 ? (
-        <div className="rounded-xl border border-slate-200 bg-white p-12 text-center shadow-xs">
+      {/* Filter & Search Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {(
+            [
+              'ALL',
+              'Sent',
+              'Pre-Contact Logged',
+              'Coach Replied',
+              'Drafted',
+              'Archived',
+            ] as const
+          ).map((st) => (
+            <button
+              key={st}
+              type="button"
+              onClick={() => setStatusFilter(st)}
+              className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                statusFilter === st
+                  ? 'bg-[#1E3A8A] text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              {st === 'ALL' ? `All (${logs.length})` : st}
+            </button>
+          ))}
+        </div>
+        <div className="relative w-full sm:w-64">
+          <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Filter by school or coach..."
+            className="w-full rounded-lg border border-slate-300 bg-slate-50 py-1.5 pl-8 pr-3 text-xs focus:border-[#1E3A8A] focus:bg-white focus:outline-none"
+          />
+        </div>
+      </div>
+
+      {filteredLogs.length === 0 ? (
+        <div className="rounded-xl border border-slate-200 bg-white p-12 text-center shadow-sm">
           <Mail className="mx-auto h-10 w-10 text-slate-300" />
           <h4 className="mt-3 text-base font-semibold text-slate-800">
-            No outreach emails logged yet
+            No outreach emails match your filter
           </h4>
           <p className="mt-1 text-sm text-slate-500">
-            Click &ldquo;Draft&rdquo; on any school in the Programs table to generate a
-            customized Class of 2029 Goalkeeper email.
+            Click &ldquo;Draft&rdquo; on any school in the Programs table to
+            generate a customized Class of 2029 Goalkeeper email.
           </p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
               <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -92,7 +198,7 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 bg-white">
-                {logs.map((log) => (
+                {filteredLogs.map((log) => (
                   <tr key={log.id} className="hover:bg-slate-50">
                     <td className="px-4 py-3.5 whitespace-nowrap text-xs font-medium text-slate-600">
                       {log.dateSent}
@@ -138,7 +244,9 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
                         <option value="Drafted">Drafted</option>
                         <option value="Sent">Sent</option>
                         <option value="Coach Replied">Coach Replied</option>
-                        <option value="Pre-Contact Logged">Pre-Contact Logged</option>
+                        <option value="Pre-Contact Logged">
+                          Pre-Contact Logged
+                        </option>
                         <option value="Archived">Archived</option>
                       </select>
                     </td>
@@ -184,15 +292,22 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
 
       {/* Email Preview Modal */}
       {selectedLog && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4">
-          <div className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedLog(null)}
+        >
+          <div
+            className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-start justify-between border-b border-slate-200 pb-3">
               <div>
                 <h4 className="text-base font-bold text-slate-900">
                   {selectedLog.schoolName} &mdash; {selectedLog.coachName}
                 </h4>
                 <p className="text-xs text-slate-500">
-                  Sent/Logged: {selectedLog.dateSent} &bull; {selectedLog.category}
+                  Sent/Logged: {selectedLog.dateSent} &bull;{' '}
+                  {selectedLog.category}
                 </p>
               </div>
               <button
@@ -204,11 +319,15 @@ export const OutreachTrackerTab: React.FC<OutreachTrackerTabProps> = ({
               </button>
             </div>
             <div className="mt-4">
-              <div className="text-xs font-bold uppercase text-slate-400">Subject</div>
+              <div className="text-xs font-bold uppercase text-slate-400">
+                Subject
+              </div>
               <div className="mt-1 rounded-lg bg-slate-50 p-2.5 text-sm font-semibold text-slate-900">
                 {selectedLog.subjectLine}
               </div>
-              <div className="mt-3 text-xs font-bold uppercase text-slate-400">Body</div>
+              <div className="mt-3 text-xs font-bold uppercase text-slate-400">
+                Body
+              </div>
               <pre className="mt-1 max-h-80 overflow-y-auto whitespace-pre-wrap rounded-lg bg-slate-50 p-3 font-sans text-xs leading-relaxed text-slate-800">
                 {selectedLog.bodyText}
               </pre>

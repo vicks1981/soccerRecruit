@@ -8,14 +8,20 @@ import {
   Clock,
   MessageSquare,
   Star,
+  ArrowUpDown,
 } from 'lucide-react';
 import { ClassNeedScore, Division, SoccerProgram } from '../types/program';
+import { SortField } from './FilterBar';
 
 interface ProgramTableProps {
   programs: SoccerProgram[];
   favoriteProgramIds: string[];
   outreachCountsByProgram: Record<string, number>;
   customNotesByProgram: Record<string, string>;
+  sortBy: SortField;
+  sortAsc: boolean;
+  onSortColumn: (field: SortField) => void;
+  onFilterConference: (conference: string) => void;
   onToggleFavorite: (programId: string) => void;
   onSelectProgram: (program: SoccerProgram) => void;
   onDraftOutreach: (program: SoccerProgram) => void;
@@ -39,6 +45,10 @@ export const ProgramTable: React.FC<ProgramTableProps> = ({
   favoriteProgramIds,
   outreachCountsByProgram,
   customNotesByProgram,
+  sortBy,
+  sortAsc,
+  onSortColumn,
+  onFilterConference,
   onToggleFavorite,
   onSelectProgram,
   onDraftOutreach,
@@ -64,12 +74,66 @@ export const ProgramTable: React.FC<ProgramTableProps> = ({
         <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
           <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
             <tr>
-              <th className="px-4 py-3.5">School Name &amp; Location</th>
+              <th className="px-4 py-3.5">
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => onSortColumn('schoolName')}
+                    className="inline-flex items-center gap-1 hover:text-slate-900"
+                  >
+                    <span>School Name &amp; Location</span>
+                    <ArrowUpDown
+                      className={`h-3.5 w-3.5 ${
+                        sortBy === 'schoolName' ? 'text-[#1E3A8A]' : 'text-slate-400'
+                      }`}
+                    />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onSortColumn('driveTime')}
+                    title="Sort by Drive Time from Delco"
+                    className={`inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-bold normal-case ${
+                      sortBy === 'driveTime'
+                        ? 'bg-[#1E3A8A] text-white'
+                        : 'bg-slate-200/70 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    <Clock className="h-2.5 w-2.5" />
+                    Drive {sortBy === 'driveTime' ? (sortAsc ? '↑' : '↓') : ''}
+                  </button>
+                </div>
+              </th>
               <th className="px-3 py-3.5">Division</th>
               <th className="px-4 py-3.5">Head Coach &amp; GK Coach</th>
               <th className="px-4 py-3.5">GK Roster Depth</th>
-              <th className="px-3 py-3.5">2029 Need Score</th>
-              <th className="px-4 py-3.5">Est. Net Price</th>
+              <th className="px-3 py-3.5">
+                <button
+                  type="button"
+                  onClick={() => onSortColumn('needScore')}
+                  className="inline-flex items-center gap-1 hover:text-slate-900"
+                >
+                  <span>2029 Need</span>
+                  <ArrowUpDown
+                    className={`h-3.5 w-3.5 ${
+                      sortBy === 'needScore' ? 'text-[#1E3A8A]' : 'text-slate-400'
+                    }`}
+                  />
+                </button>
+              </th>
+              <th className="px-4 py-3.5">
+                <button
+                  type="button"
+                  onClick={() => onSortColumn('netPrice')}
+                  className="inline-flex items-center gap-1 hover:text-slate-900"
+                >
+                  <span>Est. Net Price</span>
+                  <ArrowUpDown
+                    className={`h-3.5 w-3.5 ${
+                      sortBy === 'netPrice' ? 'text-[#1E3A8A]' : 'text-slate-400'
+                    }`}
+                  />
+                </button>
+              </th>
               <th className="px-4 py-3.5 text-right">Actions</th>
             </tr>
           </thead>
@@ -130,9 +194,14 @@ export const ProgramTable: React.FC<ProgramTableProps> = ({
                             </span>
                             <span>{program.city}</span>
                             <span>&bull;</span>
-                            <span className="font-medium text-slate-600">
+                            <button
+                              type="button"
+                              onClick={() => onFilterConference(program.conference)}
+                              title={`Filter by ${program.conference}`}
+                              className="font-medium text-slate-600 hover:text-[#1E3A8A] hover:underline"
+                            >
                               {program.conference}
-                            </span>
+                            </button>
                             {program.estimatedDriveHoursFromDelco !== undefined && (
                               <>
                                 <span>&bull;</span>
