@@ -7,6 +7,7 @@ import {
   ShieldAlert,
   UserCheck,
   ExternalLink,
+  CalendarDays,
 } from 'lucide-react';
 import { GK_EMAIL_TEMPLATES } from '../data/emailTemplates';
 import { SoccerProgram } from '../types/program';
@@ -15,6 +16,8 @@ import {
   IdCamp,
   OutreachLog,
   OutreachStatus,
+  ShowcaseGame,
+  ShowcaseSchedule,
 } from '../types/recruiting';
 
 interface EmailTemplateModalProps {
@@ -22,10 +25,13 @@ interface EmailTemplateModalProps {
   initialProgram: SoccerProgram | null;
   initialCamp?: IdCamp | null;
   initialTemplateId?: string;
+  initialOpenShowcaseBuilder?: boolean;
   programs: SoccerProgram[];
   camps: IdCamp[];
   athleteProfile: AthleteProfile;
+  showcaseSchedule: ShowcaseSchedule;
   onUpdateAthleteProfile: (profile: AthleteProfile) => void;
+  onUpdateShowcaseSchedule: (schedule: ShowcaseSchedule) => void;
   onLogOutreach: (log: OutreachLog) => void;
   onClose: () => void;
 }
@@ -45,10 +51,13 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
   initialProgram,
   initialCamp,
   initialTemplateId,
+  initialOpenShowcaseBuilder,
   programs,
   camps,
   athleteProfile,
+  showcaseSchedule,
   onUpdateAthleteProfile,
+  onUpdateShowcaseSchedule,
   onLogOutreach,
   onClose,
 }) => {
@@ -64,6 +73,7 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
   const [statusToLog, setStatusToLog] = useState<OutreachStatus>('Sent');
   const [copied, setCopied] = useState(false);
   const [showProfileEditor, setShowProfileEditor] = useState(false);
+  const [showShowcaseEditor, setShowShowcaseEditor] = useState(false);
 
   useEffect(() => {
     if (initialProgram) {
@@ -78,6 +88,13 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
       setSelectedTemplateId('campInquiry');
     }
   }, [initialTemplateId, initialCamp]);
+
+  useEffect(() => {
+    if (isOpen && initialOpenShowcaseBuilder) {
+      setShowShowcaseEditor(true);
+      setSelectedTemplateId('showcase');
+    }
+  }, [isOpen, initialOpenShowcaseBuilder]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -118,7 +135,9 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
     const campNameToken = matchingCamp
       ? matchingCamp.campName
       : `${targetProgram.schoolName} Men's Soccer Prospect ID Camp`;
-    const campDateToken = matchingCamp ? matchingCamp.startDate : 'this upcoming session';
+    const campDateToken = matchingCamp
+      ? matchingCamp.startDate
+      : 'this upcoming session';
 
     const applyTokens = (str: string) =>
       str
@@ -127,6 +146,21 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
         .replace(/\[Conference Name\]/g, targetProgram.conference)
         .replace(/\[Camp Name\]/g, campNameToken)
         .replace(/\[Date\]/g, campDateToken)
+        .replace(/\[Showcase Event Name\]/g, showcaseSchedule.eventName)
+        .replace(/\[City, State\]/g, showcaseSchedule.cityState)
+        .replace(/\[Location Name\]/g, showcaseSchedule.locationName)
+        .replace(/\[Game 1 Date\]/g, showcaseSchedule.game1.date)
+        .replace(/\[Game 1 Time\]/g, showcaseSchedule.game1.time)
+        .replace(/\[Game 1 Opponent\]/g, showcaseSchedule.game1.opponent)
+        .replace(/\[Game 1 Field\]/g, showcaseSchedule.game1.fieldNumber)
+        .replace(/\[Game 2 Date\]/g, showcaseSchedule.game2.date)
+        .replace(/\[Game 2 Time\]/g, showcaseSchedule.game2.time)
+        .replace(/\[Game 2 Opponent\]/g, showcaseSchedule.game2.opponent)
+        .replace(/\[Game 2 Field\]/g, showcaseSchedule.game2.fieldNumber)
+        .replace(/\[Game 3 Date\]/g, showcaseSchedule.game3.date)
+        .replace(/\[Game 3 Time\]/g, showcaseSchedule.game3.time)
+        .replace(/\[Game 3 Opponent\]/g, showcaseSchedule.game3.opponent)
+        .replace(/\[Game 3 Field\]/g, showcaseSchedule.game3.fieldNumber)
         .replace(/\[Player Name\]/g, athleteProfile.playerName)
         .replace(/\[Club Name\]/g, athleteProfile.clubName)
         .replace(/\[Number\]/g, athleteProfile.jerseyNumber)
@@ -149,7 +183,14 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
           .replace(/^www\./, '')
           .split('/')[0]}`
     );
-  }, [targetProgram, selectedTemplate, athleteProfile, initialCamp, camps]);
+  }, [
+    targetProgram,
+    selectedTemplate,
+    athleteProfile,
+    showcaseSchedule,
+    initialCamp,
+    camps,
+  ]);
 
   if (!isOpen || !targetProgram) return null;
 
@@ -157,6 +198,19 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
   const isPreContactRule =
     (targetProgram.division === 'D1' || targetProgram.division === 'D2') &&
     todayIso < NCAA_CONTACT_CUTOFF;
+
+  const updateGame = (
+    gameKey: 'game1' | 'game2' | 'game3',
+    patch: Partial<ShowcaseGame>
+  ) => {
+    onUpdateShowcaseSchedule({
+      ...showcaseSchedule,
+      [gameKey]: {
+        ...showcaseSchedule[gameKey],
+        ...patch,
+      },
+    });
+  };
 
   const handleCopyClipboard = () => {
     navigator.clipboard.writeText(`Subject: ${subjectLine}\n\n${bodyText}`);
@@ -208,8 +262,8 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
               Class of 2029 Goalkeeper Outreach Workspace
             </h3>
             <p className="text-xs text-slate-300">
-              Auto-populates coach, conference, camp, and 2029 ECNL Goalkeeper
-              profile variables
+              Auto-populates coach, conference, camp, ECNL showcase schedule, and
+              2029 GK profile variables
             </p>
           </div>
           <button
@@ -241,25 +295,44 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
             </div>
           )}
 
-          {/* Athlete Profile Toggle */}
-          <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5">
-            <div className="flex items-center gap-2 text-xs text-slate-700">
-              <UserCheck className="h-4 w-4 text-[#1E3A8A]" />
-              <span>
-                <strong>Athlete Profile:</strong> {athleteProfile.playerName} &bull;{' '}
-                {athleteProfile.clubName} ECNL (#{athleteProfile.jerseyNumber}) &bull;{' '}
-                {athleteProfile.gpa} GPA
-              </span>
+          {/* Athlete Profile & ECNL Showcase Schedule Builder Toggles */}
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5">
+              <div className="flex items-center gap-2 text-xs text-slate-700 truncate">
+                <UserCheck className="h-4 w-4 shrink-0 text-[#1E3A8A]" />
+                <span className="truncate">
+                  <strong>{athleteProfile.playerName}</strong> &bull;{' '}
+                  {athleteProfile.clubName} (#{athleteProfile.jerseyNumber})
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowProfileEditor(!showProfileEditor)}
+                className="ml-2 shrink-0 text-xs font-semibold text-[#1E3A8A] hover:underline"
+              >
+                {showProfileEditor ? 'Hide Profile' : 'Edit Profile'}
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => setShowProfileEditor(!showProfileEditor)}
-              className="text-xs font-semibold text-[#1E3A8A] hover:underline"
-            >
-              {showProfileEditor ? 'Hide Profile Fields' : 'Edit Athlete Variables'}
-            </button>
+
+            <div className="flex items-center justify-between rounded-xl border border-blue-200 bg-blue-50/60 px-3.5 py-2.5">
+              <div className="flex items-center gap-2 text-xs text-slate-700 truncate">
+                <CalendarDays className="h-4 w-4 shrink-0 text-[#1E3A8A]" />
+                <span className="truncate">
+                  <strong>Showcase:</strong> {showcaseSchedule.eventName} (
+                  {showcaseSchedule.cityState})
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowShowcaseEditor(!showShowcaseEditor)}
+                className="ml-2 shrink-0 text-xs font-semibold text-[#1E3A8A] hover:underline"
+              >
+                {showShowcaseEditor ? 'Hide Schedule' : 'Edit 3 Games'}
+              </button>
+            </div>
           </div>
 
+          {/* Athlete Profile Editor */}
           {showProfileEditor && (
             <div className="grid grid-cols-2 gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:grid-cols-4">
               <div>
@@ -449,6 +522,135 @@ export const EmailTemplateModal: React.FC<EmailTemplateModalProps> = ({
                   }
                   className="mt-1 w-full rounded border border-slate-300 bg-white px-2 py-1 text-xs"
                 />
+              </div>
+            </div>
+          )}
+
+          {/* ECNL Showcase Schedule Builder */}
+          {showShowcaseEditor && (
+            <div className="space-y-3 rounded-xl border border-blue-200 bg-blue-50/40 p-4">
+              <div className="flex items-center justify-between">
+                <h4 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1E3A8A]">
+                  <CalendarDays className="h-4 w-4" />
+                  ECNL Showcase Schedule Builder (Populates All Showcase Emails)
+                </h4>
+                <span className="text-[11px] font-medium text-slate-500">
+                  Enter once &bull; auto-fills Games 1–3
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-600">
+                    Showcase Event Name
+                  </label>
+                  <input
+                    type="text"
+                    value={showcaseSchedule.eventName}
+                    onChange={(e) =>
+                      onUpdateShowcaseSchedule({
+                        ...showcaseSchedule,
+                        eventName: e.target.value,
+                      })
+                    }
+                    placeholder="e.g., ECNL Boys Florida Showcase"
+                    className="mt-1 w-full rounded border border-slate-300 bg-white px-2.5 py-1.5 text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-600">
+                    City, State
+                  </label>
+                  <input
+                    type="text"
+                    value={showcaseSchedule.cityState}
+                    onChange={(e) =>
+                      onUpdateShowcaseSchedule({
+                        ...showcaseSchedule,
+                        cityState: e.target.value,
+                      })
+                    }
+                    placeholder="e.g., Lakewood Ranch, FL"
+                    className="mt-1 w-full rounded border border-slate-300 bg-white px-2.5 py-1.5 text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-600">
+                    Complex / Location Name
+                  </label>
+                  <input
+                    type="text"
+                    value={showcaseSchedule.locationName}
+                    onChange={(e) =>
+                      onUpdateShowcaseSchedule({
+                        ...showcaseSchedule,
+                        locationName: e.target.value,
+                      })
+                    }
+                    placeholder="e.g., Premier Sports Campus"
+                    className="mt-1 w-full rounded border border-slate-300 bg-white px-2.5 py-1.5 text-xs"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                {(['game1', 'game2', 'game3'] as const).map((gKey, idx) => {
+                  const game = showcaseSchedule[gKey];
+                  return (
+                    <div
+                      key={gKey}
+                      className="grid grid-cols-1 gap-2 rounded-lg border border-blue-100 bg-white p-2.5 sm:grid-cols-12 items-center"
+                    >
+                      <div className="sm:col-span-2 text-xs font-bold text-[#1E3A8A]">
+                        Game {idx + 1}
+                      </div>
+                      <div className="sm:col-span-3">
+                        <input
+                          type="text"
+                          value={game.date}
+                          onChange={(e) =>
+                            updateGame(gKey, { date: e.target.value })
+                          }
+                          placeholder="Date (e.g. Fri, Dec 12)"
+                          className="w-full rounded border border-slate-300 px-2 py-1 text-xs"
+                        />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <input
+                          type="text"
+                          value={game.time}
+                          onChange={(e) =>
+                            updateGame(gKey, { time: e.target.value })
+                          }
+                          placeholder="Time (11:00 AM)"
+                          className="w-full rounded border border-slate-300 px-2 py-1 text-xs"
+                        />
+                      </div>
+                      <div className="sm:col-span-3">
+                        <input
+                          type="text"
+                          value={game.opponent}
+                          onChange={(e) =>
+                            updateGame(gKey, { opponent: e.target.value })
+                          }
+                          placeholder="Opponent Club"
+                          className="w-full rounded border border-slate-300 px-2 py-1 text-xs"
+                        />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <input
+                          type="text"
+                          value={game.fieldNumber}
+                          onChange={(e) =>
+                            updateGame(gKey, { fieldNumber: e.target.value })
+                          }
+                          placeholder="Field #"
+                          className="w-full rounded border border-slate-300 px-2 py-1 text-xs"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

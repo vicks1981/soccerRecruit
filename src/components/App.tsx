@@ -10,6 +10,8 @@ import {
   Download,
   Upload,
   Star,
+  CalendarDays,
+  Server,
 } from 'lucide-react';
 import programsData from '../data/programs.json';
 import { SEED_ID_CAMPS } from '../data/seedCamps';
@@ -20,6 +22,7 @@ import {
   IdCamp,
   OutreachLog,
   OutreachStatus,
+  ShowcaseSchedule,
 } from '../types/recruiting';
 import { DivisionFilter, DivisionTabs } from './DivisionTabs';
 import { FilterBar, FilterState, SortField } from './FilterBar';
@@ -38,6 +41,7 @@ const STORAGE_KEYS = {
   NOTES: 'recruiting2029_program_notes_v1',
   PROFILE: 'recruiting2029_athlete_profile_v1',
   FAVORITES: 'recruiting2029_favorite_programs_v1',
+  SHOWCASE: 'recruiting2029_showcase_schedule_v1',
 };
 
 const DEFAULT_FILTERS: FilterState = {
@@ -64,6 +68,30 @@ const DEFAULT_ATHLETE_PROFILE: AthleteProfile = {
   ncaaId: '2509876543',
   highlightLink: 'https://hudl.com/v/2029-gk-highlights',
   fullGameLink: 'https://veo.co/matches/2029-ecnl-full-half',
+};
+
+const DEFAULT_SHOWCASE_SCHEDULE: ShowcaseSchedule = {
+  eventName: 'ECNL Boys Regional Showcase',
+  cityState: 'Downingtown, PA',
+  locationName: 'United Sports Training Center',
+  game1: {
+    date: 'Fri, Dec 4',
+    time: '11:00 AM',
+    opponent: 'PDA Hibernian ECNL',
+    fieldNumber: '4',
+  },
+  game2: {
+    date: 'Sat, Dec 5',
+    time: '1:30 PM',
+    opponent: 'Penn Fusion ECNL',
+    fieldNumber: '2',
+  },
+  game3: {
+    date: 'Sun, Dec 6',
+    time: '10:00 AM',
+    opponent: 'Pipeline SC ECNL',
+    fieldNumber: '1',
+  },
 };
 
 const INITIAL_OUTREACH_LOGS: OutreachLog[] = [
@@ -108,6 +136,19 @@ const NEED_SCORE_WEIGHT: Record<ClassNeedScore, number> = {
   Unverified: 4,
 };
 
+function mergeCampsWithSeed(savedCamps: IdCamp[]): IdCamp[] {
+  const savedById = new Map(savedCamps.map((c) => [c.id, c]));
+  const merged = SEED_ID_CAMPS.map((seed) =>
+    savedById.has(seed.id) ? savedById.get(seed.id)! : seed
+  );
+  const customOnly = savedCamps.filter(
+    (c) => !SEED_ID_CAMPS.some((seed) => seed.id === c.id)
+  );
+  return [...merged, ...customOnly].sort((a, b) =>
+    a.startDate.localeCompare(b.startDate)
+  );
+}
+
 export const App: React.FC = () => {
   const programs = programsData as SoccerProgram[];
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -121,24 +162,19 @@ export const App: React.FC = () => {
   const [modalTemplateId, setModalTemplateId] = useState<string | undefined>(
     undefined
   );
+  const [openShowcaseInModal, setOpenShowcaseInModal] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [lanSyncStatus, setLanSyncStatus] = useState<
+    'connecting' | 'synced' | 'local-only'
+  >('connecting');
+  const hydratedFromServerRef = useRef(false);
 
   // Persisted State (merges any newly discovered SEED_ID_CAMPS automatically)
   const [camps, setCamps] = useState<IdCamp[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.CAMPS);
       if (!saved) return SEED_ID_CAMPS;
-      const parsed: IdCamp[] = JSON.parse(saved);
-      const savedById = new Map(parsed.map((c) => [c.id, c]));
-      const merged = SEED_ID_CAMPS.map((seed) =>
-        savedById.has(seed.id) ? savedById.get(seed.id)! : seed
-      );
-      const customOnly = parsed.filter(
-        (c) => !SEED_ID_CAMPS.some((seed) => seed.id === c.id)
-      );
-      return [...merged, ...customOnly].sort((a, b) =>
-        a.startDate.localeCompare(b.startDate)
-      );
+      return mergeCampsWithSeed(JSON.parse(saved));
     } catch {
       return SEED_ID_CAMPS;
     }
@@ -198,6 +234,17 @@ export const App: React.FC = () => {
     }
   });
 
+  const [showcaseSchedule, setShowcaseSchedule] = useState<ShowcaseSchedule>(
+    () => {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEYS.SHOWCASE);
+        return saved ? JSON.parse(saved) : DEFAULT_SHOWCASE_SCHEDULE;
+      } catch {
+        return DEFAULT_SHOWCASE_SCHEDULE;
+      }
+    }
+  );
+
   const [favoriteProgramIds, setFavoriteProgramIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.FAVORITES);
@@ -207,32 +254,85 @@ export const App: React.FC = () => {
     }
   });
 
+  // 1. Hydrate from shared Vite LAN file endpoint (`/api/user-state` -> `data/user-state.json`)
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/user-state')
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => {
+        if (cancelled) return;
+        if (data?.exists && data.state) {
+          const s = data.state;
+          if (s.athleteProfile) setAthleteProfile(s.athleteProfile);
+          if (s.showcaseSchedule) setShowcaseSchedule(s.showcaseSchedule);
+          if (Array.isArray(s.favoriteProgramIds))
+            setFavoriteProgramIds(s.favoriteProgramIds);
+          if (s.customNotes && typeof s.customNotes === 'object')
+            setCustomNotes(s.customNotes);
+          if (typeof s.campBudgetCeiling === 'number')
+            setCampBudgetCeiling(s.campBudgetCeiling);
+          if (Array.isArray(s.camps)) setCamps(mergeCampsWithSeed(s.camps));
+          if (Array.isArray(s.outreachLogs)) setOutreachLogs(s.outreachLogs);
+        }
+        hydratedFromServerRef.current = true;
+        setLanSyncStatus('synced');
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setLanSyncStatus('local-only');
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // 2. Sync every state change to both `localStorage` and `POST /api/user-state` (`data/user-state.json`)
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.CAMPS, JSON.stringify(camps));
-  }, [camps]);
-
-  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.BUDGET, String(campBudgetCeiling));
-  }, [campBudgetCeiling]);
-
-  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.OUTREACH, JSON.stringify(outreachLogs));
-  }, [outreachLogs]);
-
-  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(customNotes));
-  }, [customNotes]);
-
-  useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(athleteProfile));
-  }, [athleteProfile]);
-
-  useEffect(() => {
+    localStorage.setItem(
+      STORAGE_KEYS.SHOWCASE,
+      JSON.stringify(showcaseSchedule)
+    );
     localStorage.setItem(
       STORAGE_KEYS.FAVORITES,
       JSON.stringify(favoriteProgramIds)
     );
-  }, [favoriteProgramIds]);
+
+    if (!hydratedFromServerRef.current) return;
+
+    fetch('/api/user-state', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        athleteProfile,
+        showcaseSchedule,
+        favoriteProgramIds,
+        customNotes,
+        campBudgetCeiling,
+        camps,
+        outreachLogs,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) setLanSyncStatus('synced');
+      })
+      .catch(() => {
+        setLanSyncStatus('local-only');
+      });
+  }, [
+    camps,
+    campBudgetCeiling,
+    outreachLogs,
+    customNotes,
+    athleteProfile,
+    showcaseSchedule,
+    favoriteProgramIds,
+  ]);
 
   const filteredPrograms = useMemo(() => {
     const matched = programs.filter((program) => {
@@ -353,10 +453,17 @@ export const App: React.FC = () => {
     );
   };
 
-  const handleOpenDraftModal = (program: SoccerProgram, camp?: IdCamp) => {
+  const handleOpenDraftModal = (
+    program: SoccerProgram,
+    camp?: IdCamp,
+    openShowcaseBuilder = false
+  ) => {
     setModalProgram(program);
     setModalCamp(camp || null);
-    setModalTemplateId(camp ? 'campInquiry' : undefined);
+    setModalTemplateId(
+      openShowcaseBuilder ? 'showcase' : camp ? 'campInquiry' : undefined
+    );
+    setOpenShowcaseInModal(openShowcaseBuilder);
     setIsEmailModalOpen(true);
   };
 
@@ -370,6 +477,7 @@ export const App: React.FC = () => {
     setModalProgram(targetProg);
     setModalCamp(camp);
     setModalTemplateId('campInquiry');
+    setOpenShowcaseInModal(false);
     setIsEmailModalOpen(true);
   };
 
@@ -411,6 +519,7 @@ export const App: React.FC = () => {
     const payload = {
       exportedAt: new Date().toISOString(),
       athleteProfile,
+      showcaseSchedule,
       favoriteProgramIds,
       customNotes,
       campBudgetCeiling,
@@ -436,13 +545,14 @@ export const App: React.FC = () => {
       try {
         const data = JSON.parse(String(ev.target?.result || '{}'));
         if (data.athleteProfile) setAthleteProfile(data.athleteProfile);
+        if (data.showcaseSchedule) setShowcaseSchedule(data.showcaseSchedule);
         if (Array.isArray(data.favoriteProgramIds))
           setFavoriteProgramIds(data.favoriteProgramIds);
         if (data.customNotes && typeof data.customNotes === 'object')
           setCustomNotes(data.customNotes);
         if (typeof data.campBudgetCeiling === 'number')
           setCampBudgetCeiling(data.campBudgetCeiling);
-        if (Array.isArray(data.camps)) setCamps(data.camps);
+        if (Array.isArray(data.camps)) setCamps(mergeCampsWithSeed(data.camps));
         if (Array.isArray(data.outreachLogs)) setOutreachLogs(data.outreachLogs);
       } catch {
         alert('Could not parse backup JSON file.');
@@ -579,10 +689,20 @@ export const App: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-2 text-xs text-blue-200">
-              <span className="hidden sm:inline-flex items-center gap-1.5 mr-1">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                <span>Auto-Saved Locally</span>
-              </span>
+              {lanSyncStatus === 'synced' ? (
+                <span
+                  title="Shared across all devices on your local network via data/user-state.json"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-2.5 py-1 text-[11px] font-semibold text-emerald-200 border border-emerald-400/30"
+                >
+                  <Server className="h-3.5 w-3.5 text-emerald-300" />
+                  <span>LAN Shared File Sync Active</span>
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1.5 mr-1">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <span>Local Storage Active</span>
+                </span>
+              )}
               <button
                 type="button"
                 onClick={handleExportBackupJson}
@@ -623,16 +743,32 @@ export const App: React.FC = () => {
                 selectedDivision={selectedDivision}
                 onSelectDivision={setSelectedDivision}
               />
-              <button
-                type="button"
-                onClick={() =>
-                  handleOpenDraftModal(filteredPrograms[0] || programs[0])
-                }
-                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-blue-900"
-              >
-                <Mail className="h-4 w-4" />
-                Open GK Email Templates
-              </button>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() =>
+                    handleOpenDraftModal(
+                      filteredPrograms[0] || programs[0],
+                      undefined,
+                      true
+                    )
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#1E3A8A]/30 bg-white px-3.5 py-2 text-xs font-semibold text-[#1E3A8A] shadow-sm hover:bg-blue-50"
+                >
+                  <CalendarDays className="h-4 w-4" />
+                  ECNL Showcase Schedule Builder
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    handleOpenDraftModal(filteredPrograms[0] || programs[0])
+                  }
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#1E3A8A] px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-blue-900"
+                >
+                  <Mail className="h-4 w-4" />
+                  Open GK Email Templates
+                </button>
+              </div>
             </div>
 
             <FilterBar
@@ -710,15 +846,19 @@ export const App: React.FC = () => {
         initialProgram={modalProgram}
         initialCamp={modalCamp}
         initialTemplateId={modalTemplateId}
+        initialOpenShowcaseBuilder={openShowcaseInModal}
         programs={programs}
         camps={camps}
         athleteProfile={athleteProfile}
+        showcaseSchedule={showcaseSchedule}
         onUpdateAthleteProfile={setAthleteProfile}
+        onUpdateShowcaseSchedule={setShowcaseSchedule}
         onLogOutreach={handleLogOutreach}
         onClose={() => {
           setIsEmailModalOpen(false);
           setModalCamp(null);
           setModalTemplateId(undefined);
+          setOpenShowcaseInModal(false);
         }}
       />
     </div>

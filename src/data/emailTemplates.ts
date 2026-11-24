@@ -13,17 +13,18 @@ export const GK_EMAIL_TEMPLATES: GkEmailTemplate[] = [
     id: 'showcase',
     name: 'ECNL Pre-Showcase Schedule Notice',
     category: 'Showcase Schedule',
-    subject: 'ECNL Showcase Schedule - Class of 2029 Goalkeeper - [Player Name]',
+    subject:
+      '[Showcase Event Name] Schedule - Class of 2029 Goalkeeper - [Player Name] ([Club Name] #[Number])',
     body: `Dear Coach [Coach Last Name],
 
-My name is [Player Name], a Class of 2029 Goalkeeper playing for [Club Name] ECNL (Jersey #[Number]). I am writing to share my upcoming match schedule for the ECNL Showcase in [City, State].
+My name is [Player Name], a Class of 2029 Goalkeeper playing for [Club Name] ECNL (Jersey #[Number]). I am writing to share my upcoming match schedule for the [Showcase Event Name] in [City, State].
 
 I currently maintain a [GPA] GPA and reside in Delaware County, PA. I have been following the [University Name] men's soccer program closely and believe my physical frame ([Height], [Weight] lbs), shot-stopping abilities, and vocal organization out of the back align well with your system in the [Conference Name].
 
-ECNL Showcase Match Schedule ([Location Name]):
-• Game 1: [Date] at [Time] vs. [Opponent] (Field #[X])
-• Game 2: [Date] at [Time] vs. [Opponent] (Field #[X])
-• Game 3: [Date] at [Time] vs. [Opponent] (Field #[X])
+[Showcase Event Name] Match Schedule ([Location Name]):
+• Game 1: [Game 1 Date] at [Game 1 Time] vs. [Game 1 Opponent] (Field #[Game 1 Field])
+• Game 2: [Game 2 Date] at [Game 2 Time] vs. [Game 2 Opponent] (Field #[Game 2 Field])
+• Game 3: [Game 3 Date] at [Game 3 Time] vs. [Game 3 Opponent] (Field #[Game 3 Field])
 
 Athletic & Video Links:
 • 2-Minute Highlight Reel: [Highlight Link]
@@ -34,7 +35,7 @@ Thank you for your time and evaluation. I look forward to seeing your coaching s
 Best regards,
 
 [Player Name]
-Class of 2029 Goalkeeper | [Club Name] ECNL
+Class of 2029 Goalkeeper | [Club Name] ECNL (Jersey #[Number])
 Phone: [Player Phone] | Email: [Player Email]
 NCAA ID #: [NCAA ID] | City: Delco / Suburban Philadelphia, PA`,
   },
@@ -42,7 +43,8 @@ NCAA ID #: [NCAA ID] | City: Delco / Suburban Philadelphia, PA`,
     id: 'campInquiry',
     name: 'ID Camp GK Coach Evaluation Inquiry',
     category: 'ID Camp Inquiry',
-    subject: 'Question regarding [Camp Name] Goalkeeper Curriculum - [Player Name] (2029 GK)',
+    subject:
+      'Question regarding [Camp Name] Goalkeeper Curriculum - [Player Name] (2029 GK)',
     body: `Dear Coach [Coach Last Name],
 
 My name is [Player Name], a 2029 Goalkeeper playing ECNL for [Club Name]. I am planning my camp calendar and am very interested in attending the upcoming [Camp Name] on [Date] at [University Name].

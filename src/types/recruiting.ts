@@ -61,3 +61,19 @@ export interface AthleteProfile {
   highlightLink: string;
   fullGameLink: string;
 }
+
+export interface ShowcaseGame {
+  date: string;
+  time: string;
+  opponent: string;
+  fieldNumber: string;
+}
+
+export interface ShowcaseSchedule {
+  eventName: string;
+  cityState: string;
+  locationName: string;
+  game1: ShowcaseGame;
+  game2: ShowcaseGame;
+  game3: ShowcaseGame;
+}
