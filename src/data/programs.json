@@ -1,0 +1,3180 @@
+[
+  {
+    "id": "penn",
+    "schoolName": "University of Pennsylvania",
+    "division": "D1",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "Ivy League",
+    "mensSoccerUrl": "https://pennathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://pennathletics.com/sports/mens-soccer/roster",
+    "campUrl": "https://www.pennsoccercamps.com",
+    "headCoach": {
+      "name": "Brian Gill",
+      "title": "Head Coach",
+      "email": "msoccer@upenn.edu"
+    },
+    "gkCoach": {
+      "name": "Rob Bazzloe",
+      "title": "Assistant / GK Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Phillip Falcon III",
+        "classYear": "SR",
+        "height": "6'3\"",
+        "hometown": "Tampa, FL"
+      },
+      {
+        "name": "Hayes Weller",
+        "classYear": "FR",
+        "height": "6'5\"",
+        "hometown": "Nashville, TN"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 89000,
+      "estimatedCostOfAttendanceOutOfState": 89000,
+      "averageNetPrice": 23500,
+      "financialAidNotes": "0 athletic aid, 100% need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "drexel",
+    "schoolName": "Drexel University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "CAA",
+    "mensSoccerUrl": "https://drexeldragons.com/sports/mens-soccer",
+    "rosterUrl": "https://drexeldragons.com/sports/mens-soccer/roster",
+    "campUrl": "https://www.dragonssoccerschool.com",
+    "headCoach": {
+      "name": "Mark Liberati",
+      "title": "Head Coach",
+      "email": "soccer@drexel.edu"
+    },
+    "goalkeepers": [
+      {
+        "name": "Raphael Bartell",
+        "classYear": "GR",
+        "hometown": "Rostock, Germany"
+      },
+      {
+        "name": "Ignacio Alberola",
+        "classYear": "SR",
+        "hometown": "Alicante, Spain"
+      },
+      {
+        "name": "Jose Levy Lanado",
+        "classYear": "JR",
+        "hometown": "Mexico City, Mexico"
+      },
+      {
+        "name": "Peter Punchello",
+        "classYear": "SO",
+        "hometown": "Transfer (Bloomsburg)"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 78000,
+      "estimatedCostOfAttendanceOutOfState": 78000,
+      "averageNetPrice": 38000,
+      "financialAidNotes": "Partial athletic + merit"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "temple",
+    "schoolName": "Temple University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "AAC",
+    "mensSoccerUrl": "https://owlsports.com/sports/mens-soccer",
+    "rosterUrl": "https://owlsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Brian Rowland",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jason Villalobos",
+        "classYear": "GR",
+        "hometown": "Transfer (Otterbein)"
+      },
+      {
+        "name": "Gavin Atkinson",
+        "classYear": "JR",
+        "hometown": "Transfer (Grand Canyon)"
+      },
+      {
+        "name": "Dylan Kaye",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 37000,
+      "estimatedCostOfAttendanceOutOfState": 53000,
+      "averageNetPrice": 23000,
+      "financialAidNotes": "Partial athletic + academic aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.4,
+    "campUrl": "https://www.bryangreensoccercamps.com"
+  },
+  {
+    "id": "sju",
+    "schoolName": "Saint Joseph's University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "Atlantic 10",
+    "mensSoccerUrl": "https://sjuhawks.com/sports/mens-soccer",
+    "rosterUrl": "https://sjuhawks.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Don D'Ambra",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Cooper Jennings",
+        "classYear": "SR",
+        "height": "6'1\"",
+        "hometown": "Murrells Inlet, SC"
+      },
+      {
+        "name": "Will Turk",
+        "classYear": "SO",
+        "height": "6'0\"",
+        "hometown": "Philadelphia, PA"
+      },
+      {
+        "name": "Alex Smith",
+        "classYear": "FR",
+        "height": "6'2\"",
+        "hometown": "Philadelphia, PA (YSC Academy)"
+      },
+      {
+        "name": "Peter Morano",
+        "classYear": "JR",
+        "hometown": "Transfer (High Point)"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 68000,
+      "estimatedCostOfAttendanceOutOfState": 68000,
+      "averageNetPrice": 37000,
+      "financialAidNotes": "Partial athletic + merit/need"
+    },
+    "estimatedDriveHoursFromDelco": 0.4,
+    "campUrl": "https://www.mannellasoccer.com"
+  },
+  {
+    "id": "lasalle",
+    "schoolName": "La Salle University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "Atlantic 10",
+    "mensSoccerUrl": "https://goexplorers.com/sports/mens-soccer",
+    "rosterUrl": "https://goexplorers.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Taylor Farrell",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Kiernan Webb",
+        "classYear": "SR",
+        "hometown": "Philadelphia, PA"
+      },
+      {
+        "name": "Sean Ellis",
+        "classYear": "GR"
+      },
+      {
+        "name": "Tino Kneis",
+        "classYear": "JR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 53000,
+      "estimatedCostOfAttendanceOutOfState": 53000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "Partial athletic + institutional grants"
+    },
+    "estimatedDriveHoursFromDelco": 0.4,
+    "campUrl": "https://goexplorers.com/sports/mens-soccer"
+  },
+  {
+    "id": "villanova",
+    "schoolName": "Villanova University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Villanova",
+    "conference": "Big East",
+    "mensSoccerUrl": "https://villanova.com/sports/mens-soccer",
+    "rosterUrl": "https://villanova.com/sports/mens-soccer/roster",
+    "campUrl": "https://villanovasoccer.com",
+    "headCoach": {
+      "name": "Mark Fetrow",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Alex Yagudayev",
+        "classYear": "JR"
+      },
+      {
+        "name": "Will Spitznagle",
+        "classYear": "SO"
+      },
+      {
+        "name": "Cooper Wiseman",
+        "classYear": "SO"
+      },
+      {
+        "name": "Dane Johnstone",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 84000,
+      "estimatedCostOfAttendanceOutOfState": 84000,
+      "averageNetPrice": 34000,
+      "financialAidNotes": "Partial athletic + need/merit"
+    },
+    "estimatedDriveHoursFromDelco": 0.25
+  },
+  {
+    "id": "pennstate",
+    "schoolName": "Penn State University",
+    "division": "D1",
+    "state": "PA",
+    "city": "University Park",
+    "conference": "Big Ten",
+    "mensSoccerUrl": "https://gopsusports.com/sports/mens-soccer",
+    "rosterUrl": "https://gopsusports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Danny Cook",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Justin Ross",
+        "classYear": "SO",
+        "hometown": "West Chester, PA"
+      },
+      {
+        "name": "Daniel Peluffo-Wiese",
+        "classYear": "FR",
+        "hometown": "Miami, FL"
+      },
+      {
+        "name": "Fredrick Grundin",
+        "classYear": "SO",
+        "hometown": "T\u00e4by, Sweden"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 36000,
+      "estimatedCostOfAttendanceOutOfState": 57000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "Partial athletic + merit/need"
+    },
+    "estimatedDriveHoursFromDelco": 3.5,
+    "campUrl": "https://gopsusports.com/sports/2018/8/8/camps-boys-soccer-camp-html"
+  },
+  {
+    "id": "pitt",
+    "schoolName": "University of Pittsburgh",
+    "division": "D1",
+    "state": "PA",
+    "city": "Pittsburgh",
+    "conference": "ACC",
+    "mensSoccerUrl": "https://pittsburghpanthers.com/sports/mens-soccer",
+    "rosterUrl": "https://pittsburghpanthers.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jay Vidovich",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jack Moxom",
+        "classYear": "SR",
+        "height": "6'3\""
+      },
+      {
+        "name": "Lukah Shah",
+        "classYear": "SO",
+        "height": "6'2\""
+      },
+      {
+        "name": "Taren Wente",
+        "classYear": "FR",
+        "height": "6'0\"",
+        "hometown": "Albuquerque, NM"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 38000,
+      "estimatedCostOfAttendanceOutOfState": 56000,
+      "averageNetPrice": 25000,
+      "financialAidNotes": "Partial athletic + academic aid"
+    },
+    "estimatedDriveHoursFromDelco": 5.0
+  },
+  {
+    "id": "lehigh",
+    "schoolName": "Lehigh University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Bethlehem",
+    "conference": "Patriot League",
+    "mensSoccerUrl": "https://lehighsports.com/sports/mens-soccer",
+    "rosterUrl": "https://lehighsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dean Koski",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Anton Kinnunen",
+        "classYear": "JR",
+        "hometown": "Kemi, Finland"
+      },
+      {
+        "name": "Calan Armitage",
+        "classYear": "JR",
+        "hometown": "Whitehouse Station, NJ"
+      },
+      {
+        "name": "Ethan Berger",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 79000,
+      "estimatedCostOfAttendanceOutOfState": 79000,
+      "averageNetPrice": 39000,
+      "financialAidNotes": "Partial athletic + need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.25,
+    "campUrl": "https://lehighsports.com/sports/mens-soccer"
+  },
+  {
+    "id": "lafayette",
+    "schoolName": "Lafayette College",
+    "division": "D1",
+    "state": "PA",
+    "city": "Easton",
+    "conference": "Patriot League",
+    "mensSoccerUrl": "https://goleopards.com/sports/mens-soccer",
+    "rosterUrl": "https://goleopards.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dennis Bohn",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Marco Brok",
+        "classYear": "SR",
+        "height": "6'3\"",
+        "hometown": "Atlanta, GA"
+      },
+      {
+        "name": "Francisco Benbow",
+        "classYear": "SO",
+        "height": "5'10\"",
+        "hometown": "West Chester, PA"
+      },
+      {
+        "name": "John-Henry Lodge",
+        "classYear": "FR",
+        "height": "6'3\"",
+        "hometown": "Naples, FL"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 80000,
+      "estimatedCostOfAttendanceOutOfState": 80000,
+      "averageNetPrice": 38000,
+      "financialAidNotes": "Partial athletic + need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.35,
+    "campUrl": "https://goleopardscamps.com"
+  },
+  {
+    "id": "bucknell",
+    "schoolName": "Bucknell University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Lewisburg",
+    "conference": "Patriot League",
+    "mensSoccerUrl": "https://bucknellbison.com/sports/mens-soccer",
+    "rosterUrl": "https://bucknellbison.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dave Brandt",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Thomas Yerbury",
+        "classYear": "JR",
+        "hometown": "La Jolla, CA"
+      },
+      {
+        "name": "Rex Alphen",
+        "classYear": "SO",
+        "hometown": "Richmond, VA"
+      },
+      {
+        "name": "Freddie Lapworth",
+        "classYear": "SR",
+        "hometown": "England"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 82000,
+      "estimatedCostOfAttendanceOutOfState": 82000,
+      "averageNetPrice": 39000,
+      "financialAidNotes": "Partial athletic + need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.85,
+    "campUrl": "https://gobisonsoccercamps.com"
+  },
+  {
+    "id": "rmu",
+    "schoolName": "Robert Morris University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Coraopolis",
+    "conference": "Horizon League",
+    "mensSoccerUrl": "https://rmucolonials.com/sports/mens-soccer",
+    "rosterUrl": "https://rmucolonials.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jonathan Potter",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Josh Lane",
+        "classYear": "SR",
+        "hometown": "Leicester, England"
+      },
+      {
+        "name": "Christopher Lewis",
+        "classYear": "JR",
+        "hometown": "Dallas, TX"
+      },
+      {
+        "name": "Sam Wessel",
+        "classYear": "FR",
+        "hometown": "Pittsburgh, PA"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 48000,
+      "estimatedCostOfAttendanceOutOfState": 48000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "Partial athletic + merit"
+    },
+    "estimatedDriveHoursFromDelco": 5.2
+  },
+  {
+    "id": "mercyhurst",
+    "schoolName": "Mercyhurst University",
+    "division": "D1",
+    "state": "PA",
+    "city": "Erie",
+    "conference": "NEC",
+    "mensSoccerUrl": "https://hurstathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://hurstathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Austin Klewan",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Christoffer Kalkar",
+        "classYear": "JR"
+      },
+      {
+        "name": "Jaime Tedaldi",
+        "classYear": "JR"
+      },
+      {
+        "name": "Cole Falk",
+        "classYear": "SO"
+      },
+      {
+        "name": "Jimmy Catsaros",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 55000,
+      "estimatedCostOfAttendanceOutOfState": 55000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "Transitioned to D1 in 2024; partial athletic"
+    },
+    "estimatedDriveHoursFromDelco": 6.0
+  },
+  {
+    "id": "ud",
+    "schoolName": "University of Delaware",
+    "division": "D1",
+    "state": "DE",
+    "city": "Newark",
+    "conference": "Summit League",
+    "mensSoccerUrl": "https://bluehens.com/sports/mens-soccer",
+    "rosterUrl": "https://bluehens.com/sports/mens-soccer/roster",
+    "campUrl": "https://bluehensoccercamps.com",
+    "headCoach": {
+      "name": "Tommy Powell",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Braeden Sorensen",
+        "classYear": "GR",
+        "hometown": "Ephrata, PA"
+      },
+      {
+        "name": "Eric Widrick",
+        "classYear": "GR",
+        "hometown": "Arlington, MA"
+      },
+      {
+        "name": "JoJo Elliott Jr.",
+        "classYear": "FR",
+        "hometown": "Hockessin, DE (Phila Union Acad)"
+      },
+      {
+        "name": "Oliver Reece",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 34000,
+      "estimatedCostOfAttendanceOutOfState": 56000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "High-level regional D1; active ECNL recruiting"
+    },
+    "estimatedDriveHoursFromDelco": 0.65
+  },
+  {
+    "id": "princeton",
+    "schoolName": "Princeton University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "Princeton",
+    "conference": "Ivy League",
+    "mensSoccerUrl": "https://goprincetontigers.com/sports/mens-soccer",
+    "rosterUrl": "https://goprincetontigers.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jim Barlow",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Andrew Samuels",
+        "classYear": "SR"
+      },
+      {
+        "name": "Viktor Alestig",
+        "classYear": "FR",
+        "hometown": "Gothenburg, Sweden"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 86000,
+      "estimatedCostOfAttendanceOutOfState": 86000,
+      "averageNetPrice": 12000,
+      "financialAidNotes": "0 athletic aid; 100% need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.0,
+    "campUrl": "https://princetonsportscamps.com"
+  },
+  {
+    "id": "rutgers",
+    "schoolName": "Rutgers University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "New Brunswick",
+    "conference": "Big Ten",
+    "mensSoccerUrl": "https://scarletknights.com/sports/mens-soccer",
+    "rosterUrl": "https://scarletknights.com/sports/mens-soccer/roster",
+    "campUrl": "https://rutgerssoccercamp.com",
+    "headCoach": {
+      "name": "Jim McElderry",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Rafael Ponce de Leon",
+        "classYear": "SR",
+        "hometown": "Transfer (Northwestern / Villanova)"
+      },
+      {
+        "name": "Logan Brown",
+        "classYear": "JR",
+        "hometown": "Transfer (Clemson)"
+      },
+      {
+        "name": "Ailan Panton",
+        "classYear": "SO",
+        "hometown": "NE Revolution Academy"
+      },
+      {
+        "name": "Julian Chapman",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 36000,
+      "estimatedCostOfAttendanceOutOfState": 55000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "Big Ten; prioritizes frame & shot stopping"
+    },
+    "estimatedDriveHoursFromDelco": 1.4
+  },
+  {
+    "id": "monmouth",
+    "schoolName": "Monmouth University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "West Long Branch",
+    "conference": "CAA",
+    "mensSoccerUrl": "https://monmouthhawks.com/sports/mens-soccer",
+    "rosterUrl": "https://monmouthhawks.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Robert McCourt",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Herman Johnsen",
+        "classYear": "JR",
+        "hometown": "Kristiansand, Norway"
+      },
+      {
+        "name": "Matthew Link",
+        "classYear": "SO",
+        "hometown": "Schnecksville, PA"
+      },
+      {
+        "name": "Jason King",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 64000,
+      "estimatedCostOfAttendanceOutOfState": 64000,
+      "averageNetPrice": 31000,
+      "financialAidNotes": "CAA contender; Mid-Atlantic pipeline"
+    },
+    "estimatedDriveHoursFromDelco": 1.75,
+    "campUrl": "https://boyssoccercamps.monmouthhawks.com"
+  },
+  {
+    "id": "rider",
+    "schoolName": "Rider University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "Lawrenceville",
+    "conference": "MAAC",
+    "mensSoccerUrl": "https://gobroncs.com/sports/mens-soccer",
+    "rosterUrl": "https://gobroncs.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Charlie Inverso",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Marius Helias",
+        "classYear": "GR",
+        "hometown": "Saint Florentin, France"
+      },
+      {
+        "name": "Ben Collins",
+        "classYear": "SR"
+      },
+      {
+        "name": "Cole Bachuzewski",
+        "classYear": "SO",
+        "hometown": "Albuquerque, NM"
+      },
+      {
+        "name": "Yoav Arikha",
+        "classYear": "SO",
+        "hometown": "Tel Aviv, Israel"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 68000,
+      "estimatedCostOfAttendanceOutOfState": 68000,
+      "averageNetPrice": 29000,
+      "financialAidNotes": "MAAC program; strong GK development"
+    },
+    "estimatedDriveHoursFromDelco": 0.95
+  },
+  {
+    "id": "setonhall",
+    "schoolName": "Seton Hall University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "South Orange",
+    "conference": "Big East",
+    "mensSoccerUrl": "https://shupirates.com/sports/mens-soccer",
+    "rosterUrl": "https://shupirates.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Andreas Lindberg",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Devin Armstrong",
+        "classYear": "GR",
+        "hometown": "Palm Harbor, FL"
+      },
+      {
+        "name": "Mick Sipples",
+        "classYear": "GR",
+        "hometown": "Middletown, CT"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 72000,
+      "estimatedCostOfAttendanceOutOfState": 72000,
+      "averageNetPrice": 33000,
+      "financialAidNotes": "Big East; distribution focus"
+    },
+    "estimatedDriveHoursFromDelco": 1.8
+  },
+  {
+    "id": "njit",
+    "schoolName": "NJIT",
+    "division": "D1",
+    "state": "NJ",
+    "city": "Newark",
+    "conference": "America East",
+    "mensSoccerUrl": "https://njithighlanders.com/sports/mens-soccer",
+    "rosterUrl": "https://njithighlanders.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Fernando Barboto",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Samori McKell-Jeffers",
+        "classYear": "JR",
+        "height": "6'3\"",
+        "hometown": "Muncie, IN"
+      },
+      {
+        "name": "Andre Faerman",
+        "classYear": "SO",
+        "hometown": "Cooper City, FL"
+      },
+      {
+        "name": "Emil Aumann",
+        "classYear": "FR",
+        "hometown": "Wiesbaden, Germany"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 38000,
+      "estimatedCostOfAttendanceOutOfState": 54000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "STEM focus; America East"
+    },
+    "estimatedDriveHoursFromDelco": 1.8
+  },
+  {
+    "id": "fdu",
+    "schoolName": "Fairleigh Dickinson University",
+    "division": "D1",
+    "state": "NJ",
+    "city": "Teaneck",
+    "conference": "NEC",
+    "mensSoccerUrl": "https://fduknights.com/sports/mens-soccer",
+    "rosterUrl": "https://fduknights.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Seth Roland",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Matheus Franca",
+        "classYear": "SR",
+        "hometown": "Newark, NJ"
+      },
+      {
+        "name": "Justin Scavalla",
+        "classYear": "JR"
+      },
+      {
+        "name": "Dante Orellana",
+        "classYear": "FR",
+        "hometown": "Newark, NJ"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 58000,
+      "estimatedCostOfAttendanceOutOfState": 58000,
+      "averageNetPrice": 20000,
+      "financialAidNotes": "Perennial NEC power"
+    },
+    "estimatedDriveHoursFromDelco": 2.05
+  },
+  {
+    "id": "umd",
+    "schoolName": "University of Maryland",
+    "division": "D1",
+    "state": "MD",
+    "city": "College Park",
+    "conference": "Big Ten",
+    "mensSoccerUrl": "https://umterps.com/sports/mens-soccer",
+    "rosterUrl": "https://umterps.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Sasho Cirovski",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Laurin Mack",
+        "classYear": "JR"
+      },
+      {
+        "name": "Alexander Milosevic",
+        "classYear": "SO",
+        "hometown": "Vancouver, BC"
+      },
+      {
+        "name": "Zach Cielewich",
+        "classYear": "FR",
+        "hometown": "Severna Park, MD"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 28000,
+      "estimatedCostOfAttendanceOutOfState": 57000,
+      "averageNetPrice": 16000,
+      "financialAidNotes": "National powerhouse"
+    },
+    "estimatedDriveHoursFromDelco": 2.25,
+    "campUrl": "https://marylandsoccercamp.com"
+  },
+  {
+    "id": "umbc",
+    "schoolName": "UMBC",
+    "division": "D1",
+    "state": "MD",
+    "city": "Baltimore",
+    "conference": "America East",
+    "mensSoccerUrl": "https://umbcretrievers.com/sports/mens-soccer",
+    "rosterUrl": "https://umbcretrievers.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Pete Caringi Jr.",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Emigdio Tormo Lopez",
+        "classYear": "SR",
+        "hometown": "Elche, Spain"
+      },
+      {
+        "name": "Joe Pollard",
+        "classYear": "JR",
+        "hometown": "Perth, Australia"
+      },
+      {
+        "name": "Anthony Cipressi",
+        "classYear": "JR",
+        "hometown": "Ontario, Canada"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 30000,
+      "estimatedCostOfAttendanceOutOfState": 46000,
+      "averageNetPrice": 17000,
+      "financialAidNotes": "Strong D1 mid-major"
+    },
+    "estimatedDriveHoursFromDelco": 1.75,
+    "campUrl": "https://www.retrieversocceracademy.com"
+  },
+  {
+    "id": "loyola-md",
+    "schoolName": "Loyola University Maryland",
+    "division": "D1",
+    "state": "MD",
+    "city": "Baltimore",
+    "conference": "Patriot League",
+    "mensSoccerUrl": "https://loyolagreyhounds.com/sports/mens-soccer",
+    "rosterUrl": "https://loyolagreyhounds.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Steve Nichols",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Connor O'Keefe",
+        "classYear": "JR",
+        "height": "6'6\"",
+        "hometown": "St. George, UT"
+      },
+      {
+        "name": "Zack Anctil",
+        "classYear": "SO",
+        "height": "6'0\"",
+        "hometown": "Parker, CO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 75000,
+      "estimatedCostOfAttendanceOutOfState": 75000,
+      "averageNetPrice": 34000,
+      "financialAidNotes": "Patriot League academics/athletics"
+    },
+    "estimatedDriveHoursFromDelco": 1.75,
+    "campUrl": "https://greyhoundsoccercamps.com"
+  },
+  {
+    "id": "navy",
+    "schoolName": "U.S. Naval Academy",
+    "division": "D1",
+    "state": "MD",
+    "city": "Annapolis",
+    "conference": "Patriot League",
+    "mensSoccerUrl": "https://navysports.com/sports/mens-soccer",
+    "rosterUrl": "https://navysports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Tim O'Donohue",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Dylan Carmody",
+        "classYear": "JR"
+      },
+      {
+        "name": "Sam Clark",
+        "classYear": "SO",
+        "height": "6'1\""
+      },
+      {
+        "name": "Andrew Howell",
+        "classYear": "SO"
+      },
+      {
+        "name": "Keegan Cornett",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 0,
+      "estimatedCostOfAttendanceOutOfState": 0,
+      "averageNetPrice": 0,
+      "financialAidNotes": "Service obligation; full tuition/room covered"
+    },
+    "estimatedDriveHoursFromDelco": 2.1,
+    "campUrl": "https://navysports.com/sports/2018/5/23/camps-navy-mens-soccer-camps-html.aspx"
+  },
+  {
+    "id": "msmu",
+    "schoolName": "Mount St. Mary's University",
+    "division": "D1",
+    "state": "MD",
+    "city": "Emmitsburg",
+    "conference": "MAAC",
+    "mensSoccerUrl": "https://mountathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://mountathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Brett Teach",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Ryan Collins",
+        "classYear": "SO"
+      },
+      {
+        "name": "Blake Walton",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 51000,
+      "estimatedCostOfAttendanceOutOfState": 51000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "MAAC partial athletic equivalencies"
+    },
+    "estimatedDriveHoursFromDelco": 2.5
+  },
+  {
+    "id": "tju",
+    "schoolName": "Thomas Jefferson University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://jeffersonrams.com/sports/mens-soccer",
+    "rosterUrl": "https://jeffersonrams.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Ptah Myers",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Damian Krapf",
+        "classYear": "SR",
+        "hometown": "Allentown, PA"
+      },
+      {
+        "name": "Lucca Bellina",
+        "classYear": "SO",
+        "hometown": "Panama City, Panama"
+      },
+      {
+        "name": "JR Sexton",
+        "classYear": "SO",
+        "hometown": "Kitchener, ON"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 63000,
+      "estimatedCostOfAttendanceOutOfState": 63000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "CACC athletic + merit grants"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "hfu",
+    "schoolName": "Holy Family University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://holyfamilyathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://holyfamilyathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Hugh Brown",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Bruno Mestres",
+        "classYear": "JR",
+        "height": "6'1\"",
+        "hometown": "Sao Paulo, Brazil"
+      },
+      {
+        "name": "Joey Phillips",
+        "classYear": "SO",
+        "height": "6'2\""
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 48000,
+      "estimatedCostOfAttendanceOutOfState": 48000,
+      "averageNetPrice": 16000,
+      "financialAidNotes": "CACC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "chc",
+    "schoolName": "Chestnut Hill College",
+    "division": "D2",
+    "state": "PA",
+    "city": "Philadelphia",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://griffinathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://griffinathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dave Bonowski",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Joao Miclos",
+        "classYear": "JR",
+        "hometown": "Goias, Brazil"
+      },
+      {
+        "name": "Max Bond",
+        "classYear": "SO",
+        "height": "5'11\"",
+        "hometown": "Dublin, OH"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 54000,
+      "estimatedCostOfAttendanceOutOfState": 54000,
+      "averageNetPrice": 25000,
+      "financialAidNotes": "CACC athletic + merit"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "wcu",
+    "schoolName": "West Chester University",
+    "division": "D2",
+    "state": "PA",
+    "city": "West Chester",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://wcupagoldenrams.com/sports/mens-soccer",
+    "rosterUrl": "https://wcupagoldenrams.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Michael Benn",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jaden Howard",
+        "classYear": "SR"
+      },
+      {
+        "name": "Alexi Amanatidis",
+        "classYear": "SR"
+      },
+      {
+        "name": "Caleb Addalia",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 26000,
+      "estimatedCostOfAttendanceOutOfState": 38000,
+      "averageNetPrice": 19000,
+      "financialAidNotes": "PSAC power; regional favorite"
+    },
+    "estimatedDriveHoursFromDelco": 0.35,
+    "campUrl": "https://wcupagoldenrams.com/sports/mens-soccer"
+  },
+  {
+    "id": "millersville",
+    "schoolName": "Millersville University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Millersville",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://millersvilleathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://millersvilleathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Steve Widdowson",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jack Gabler",
+        "classYear": "JR"
+      },
+      {
+        "name": "Jake Van Vorhees",
+        "classYear": "SO"
+      },
+      {
+        "name": "Kieran Finegan",
+        "classYear": "SO"
+      },
+      {
+        "name": "Logan Kratz",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 26000,
+      "estimatedCostOfAttendanceOutOfState": 37000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "PSAC athletic + state grants"
+    },
+    "estimatedDriveHoursFromDelco": 1.35
+  },
+  {
+    "id": "esu",
+    "schoolName": "East Stroudsburg University",
+    "division": "D2",
+    "state": "PA",
+    "city": "East Stroudsburg",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://esuwarriors.com/sports/mens-soccer",
+    "rosterUrl": "https://esuwarriors.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Rob Berkowitz",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jake Cohen",
+        "classYear": "SO"
+      },
+      {
+        "name": "Aiden Hoopes",
+        "classYear": "SO"
+      },
+      {
+        "name": "Gabin Meneyrol",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 26000,
+      "estimatedCostOfAttendanceOutOfState": 36000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.1
+  },
+  {
+    "id": "shippensburg",
+    "schoolName": "Shippensburg University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Shippensburg",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://shipraiders.com/sports/mens-soccer",
+    "rosterUrl": "https://shipraiders.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jeremy Spering",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Ryan Krumenacker",
+        "classYear": "SR"
+      },
+      {
+        "name": "Jack McCann",
+        "classYear": "SR"
+      },
+      {
+        "name": "Carl Robinson",
+        "classYear": "SO"
+      },
+      {
+        "name": "Connor Detamore",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 26000,
+      "estimatedCostOfAttendanceOutOfState": 36000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.5
+  },
+  {
+    "id": "bloomsburg",
+    "schoolName": "Bloomsburg University (Commonwealth U)",
+    "division": "D2",
+    "state": "PA",
+    "city": "Bloomsburg",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://buhuskies.com/sports/mens-soccer",
+    "rosterUrl": "https://buhuskies.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Mark Bassett",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Sean Blatz",
+        "classYear": "JR"
+      },
+      {
+        "name": "Drew Offenberg",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 25000,
+      "estimatedCostOfAttendanceOutOfState": 36000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.5
+  },
+  {
+    "id": "lockhaven",
+    "schoolName": "Lock Haven University (Commonwealth U)",
+    "division": "D2",
+    "state": "PA",
+    "city": "Lock Haven",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://golhu.com/sports/mens-soccer",
+    "rosterUrl": "https://golhu.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Patrick Long",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Ethan Beck",
+        "classYear": "JR",
+        "height": "6'4\"",
+        "hometown": "Lititz, PA"
+      },
+      {
+        "name": "Caleb Anderson",
+        "classYear": "SO",
+        "height": "6'4\"",
+        "hometown": "Corning, NY"
+      },
+      {
+        "name": "Reece Kordes",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 25000,
+      "estimatedCostOfAttendanceOutOfState": 36000,
+      "averageNetPrice": 19000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 3.5
+  },
+  {
+    "id": "gannon",
+    "schoolName": "Gannon University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Erie",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://gannonsports.com/sports/mens-soccer",
+    "rosterUrl": "https://gannonsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Billy Fitchet",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Harry Jameson",
+        "classYear": "SR",
+        "height": "5'10\"",
+        "hometown": "Spartanburg, SC"
+      },
+      {
+        "name": "Anthony Di Gioia",
+        "classYear": "JR",
+        "height": "6'1\"",
+        "hometown": "Welland, ON"
+      },
+      {
+        "name": "Ivan Capurro",
+        "classYear": "SO",
+        "height": "6'2\"",
+        "hometown": "Uruguay"
+      },
+      {
+        "name": "Caspar Lindner",
+        "classYear": "FR",
+        "hometown": "London, England"
+      },
+      {
+        "name": "Nico Codispoti",
+        "classYear": "FR",
+        "height": "5'11\"",
+        "hometown": "Canton, OH"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 52000,
+      "estimatedCostOfAttendanceOutOfState": 52000,
+      "averageNetPrice": 22000,
+      "financialAidNotes": "PSAC power; international focus"
+    },
+    "estimatedDriveHoursFromDelco": 6.0
+  },
+  {
+    "id": "slipperyrock",
+    "schoolName": "Slippery Rock University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Slippery Rock",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://rockathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://rockathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Kevin Wilhelm",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Troy Nine",
+        "classYear": "JR"
+      },
+      {
+        "name": "Dylan Bliss",
+        "classYear": "SO"
+      },
+      {
+        "name": "Kristian Mazar",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 25000,
+      "estimatedCostOfAttendanceOutOfState": 35000,
+      "averageNetPrice": 17000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 5.5
+  },
+  {
+    "id": "setonhill-d2",
+    "schoolName": "Seton Hill University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Greensburg",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://athletics.setonhill.edu/sports/mens-soccer",
+    "rosterUrl": "https://athletics.setonhill.edu/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dan Heiland",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jannik Reiss",
+        "classYear": "JR"
+      },
+      {
+        "name": "Nathan Russell",
+        "classYear": "SO"
+      },
+      {
+        "name": "Luke Simpson",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 54000,
+      "estimatedCostOfAttendanceOutOfState": 54000,
+      "averageNetPrice": 23000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 4.6
+  },
+  {
+    "id": "pointpark",
+    "schoolName": "Point Park University",
+    "division": "D2",
+    "state": "PA",
+    "city": "Pittsburgh",
+    "conference": "Mountain East",
+    "mensSoccerUrl": "https://pointparksports.com/sports/mens-soccer",
+    "rosterUrl": "https://pointparksports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Cameron Olson",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "David Ali",
+        "classYear": "JR"
+      },
+      {
+        "name": "Anthony Fusay",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 51000,
+      "estimatedCostOfAttendanceOutOfState": 51000,
+      "averageNetPrice": 24000,
+      "financialAidNotes": "Transitioned to D2 MEC in 2024"
+    },
+    "estimatedDriveHoursFromDelco": 5.0
+  },
+  {
+    "id": "pennwest-cal",
+    "schoolName": "PennWest California",
+    "division": "D2",
+    "state": "PA",
+    "city": "California",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://calvulcans.com/sports/mens-soccer",
+    "rosterUrl": "https://calvulcans.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Emedin Sabic",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Breno Santos",
+        "classYear": "SR",
+        "height": "6'0\"",
+        "hometown": "Juazeiro, Brazil"
+      },
+      {
+        "name": "Justin Brink",
+        "classYear": "JR",
+        "hometown": "Tarentum, PA"
+      },
+      {
+        "name": "Luke Rubican",
+        "classYear": "FR",
+        "height": "6'2\"",
+        "hometown": "Bethel Park, PA"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 25000,
+      "estimatedCostOfAttendanceOutOfState": 35000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 5.0
+  },
+  {
+    "id": "pitt-johnstown",
+    "schoolName": "Pitt-Johnstown",
+    "division": "D2",
+    "state": "PA",
+    "city": "Johnstown",
+    "conference": "PSAC",
+    "mensSoccerUrl": "https://pittjohnstownathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://pittjohnstownathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Eric Kinsey",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Lukas Christian",
+        "classYear": "JR",
+        "hometown": "McKees Rocks, PA"
+      },
+      {
+        "name": "Fernando Lozano",
+        "classYear": "SO",
+        "hometown": "York, PA"
+      },
+      {
+        "name": "Sebastian Roman Rivera",
+        "classYear": "SO",
+        "hometown": "San Juan, PR"
+      },
+      {
+        "name": "Logan Bish",
+        "classYear": "FR",
+        "hometown": "Lucinda, PA"
+      },
+      {
+        "name": "George Pasko",
+        "classYear": "FR",
+        "hometown": "Saukville, WI"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 28000,
+      "estimatedCostOfAttendanceOutOfState": 40000,
+      "averageNetPrice": 17000,
+      "financialAidNotes": "PSAC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 4.2
+  },
+  {
+    "id": "gbc",
+    "schoolName": "Goldey-Beacom College",
+    "division": "D2",
+    "state": "DE",
+    "city": "Wilmington",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://gbcathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://gbcathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Ryan Dixon",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jamel Yasin",
+        "classYear": "SR",
+        "hometown": "Sewell, NJ"
+      },
+      {
+        "name": "Adham Mohamed",
+        "classYear": "SO",
+        "hometown": "West Windsor, NJ"
+      },
+      {
+        "name": "Nicolas Hernandez",
+        "classYear": "SO"
+      },
+      {
+        "name": "Ian Waiblinger",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 42000,
+      "estimatedCostOfAttendanceOutOfState": 42000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "CACC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.4
+  },
+  {
+    "id": "wilmu",
+    "schoolName": "Wilmington University",
+    "division": "D2",
+    "state": "DE",
+    "city": "New Castle",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://wildcats.wilmu.edu/sports/msoc",
+    "rosterUrl": "https://wildcats.wilmu.edu/sports/msoc/roster",
+    "headCoach": {
+      "name": "Nick Papanicolas",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Nick Kormann",
+        "classYear": "SO"
+      },
+      {
+        "name": "Emil Lollike",
+        "classYear": "SO"
+      },
+      {
+        "name": "Will Kiers",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 32000,
+      "estimatedCostOfAttendanceOutOfState": 32000,
+      "averageNetPrice": 15000,
+      "financialAidNotes": "Perennial CACC power"
+    },
+    "estimatedDriveHoursFromDelco": 0.45
+  },
+  {
+    "id": "gcu",
+    "schoolName": "Georgian Court University",
+    "division": "D2",
+    "state": "NJ",
+    "city": "Lakewood",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://gculions.com/sports/mens-soccer",
+    "rosterUrl": "https://gculions.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dino Raso",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Yaseen Mouffok",
+        "classYear": "SR",
+        "hometown": "North Brunswick, NJ"
+      },
+      {
+        "name": "Jason Xu",
+        "classYear": "JR",
+        "hometown": "Cambridge, England"
+      },
+      {
+        "name": "Lennox Blue Lebelt",
+        "classYear": "SO",
+        "hometown": "Berlin, Germany"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 52000,
+      "estimatedCostOfAttendanceOutOfState": 52000,
+      "averageNetPrice": 22000,
+      "financialAidNotes": "CACC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.45
+  },
+  {
+    "id": "caldwell",
+    "schoolName": "Caldwell University",
+    "division": "D2",
+    "state": "NJ",
+    "city": "Caldwell",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://caldwellathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://caldwellathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Martin Sizer",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Kura De Oliveira Curado",
+        "classYear": "JR"
+      },
+      {
+        "name": "Jack Carroll",
+        "classYear": "SO"
+      },
+      {
+        "name": "Diogo Da Silva",
+        "classYear": "FR",
+        "hometown": "Newark, NJ"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 53000,
+      "estimatedCostOfAttendanceOutOfState": 53000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "CACC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.9
+  },
+  {
+    "id": "felician",
+    "schoolName": "Felician University",
+    "division": "D2",
+    "state": "NJ",
+    "city": "Rutherford",
+    "conference": "CACC",
+    "mensSoccerUrl": "https://felicianathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://felicianathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Brandon Levine",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Mathias Kristoffersen",
+        "classYear": "SR",
+        "height": "6'2\"",
+        "hometown": "Skovby, Denmark"
+      },
+      {
+        "name": "Joel Hernandez",
+        "classYear": "JR"
+      },
+      {
+        "name": "Gerardo Mendez",
+        "classYear": "SO"
+      },
+      {
+        "name": "Chase Anderson",
+        "classYear": "FR",
+        "height": "5'11\"",
+        "hometown": "Coppell, TX"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 54000,
+      "estimatedCostOfAttendanceOutOfState": 54000,
+      "averageNetPrice": 20000,
+      "financialAidNotes": "CACC athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.0
+  },
+  {
+    "id": "frostburg",
+    "schoolName": "Frostburg State University",
+    "division": "D2",
+    "state": "MD",
+    "city": "Frostburg",
+    "conference": "Mountain East",
+    "mensSoccerUrl": "https://frostburgsports.com/sports/mens-soccer",
+    "rosterUrl": "https://frostburgsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Keith Byrnes",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Josiah Emerson",
+        "classYear": "SR",
+        "hometown": "Transfer (Azusa Pacific)"
+      },
+      {
+        "name": "Jan Foret",
+        "classYear": "JR"
+      },
+      {
+        "name": "Gavin O'Brien",
+        "classYear": "SO"
+      },
+      {
+        "name": "Julian Quirk",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 24000,
+      "estimatedCostOfAttendanceOutOfState": 36000,
+      "averageNetPrice": 16000,
+      "financialAidNotes": "Mountain East Conference athletic aid"
+    },
+    "estimatedDriveHoursFromDelco": 3.9
+  },
+  {
+    "id": "haverford",
+    "schoolName": "Haverford College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Haverford",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://haverfordathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://haverfordathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Zach Rabacon",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Grayson Benson",
+        "classYear": "JR"
+      },
+      {
+        "name": "Will Ossmann",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 89000,
+      "estimatedCostOfAttendanceOutOfState": 89000,
+      "averageNetPrice": 25000,
+      "financialAidNotes": "0 athletic aid, 100% need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.25,
+    "campUrl": "https://haverfordmenssocceridcamp.com"
+  },
+  {
+    "id": "swarthmore",
+    "schoolName": "Swarthmore College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Swarthmore",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://swarthmoreathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://swarthmoreathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Eric Wagner",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Logan Aboudara",
+        "classYear": "SR",
+        "hometown": "Menlo Park, CA"
+      },
+      {
+        "name": "Eli Cogan",
+        "classYear": "JR",
+        "hometown": "Cincinnati, OH"
+      },
+      {
+        "name": "Colin Crowe",
+        "classYear": "SO",
+        "hometown": "Washington, DC"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 89000,
+      "estimatedCostOfAttendanceOutOfState": 89000,
+      "averageNetPrice": 20000,
+      "financialAidNotes": "0 athletic aid, 100% need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.2,
+    "campUrl": "https://elite300.com"
+  },
+  {
+    "id": "ursinus",
+    "schoolName": "Ursinus College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Collegeville",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://ursinusathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://ursinusathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Keith Cappo",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Josiah Moore",
+        "classYear": "SR",
+        "hometown": "West Chester, PA"
+      },
+      {
+        "name": "Tucker Griffin",
+        "classYear": "JR",
+        "hometown": "Douglassville, PA"
+      },
+      {
+        "name": "Jaden Ottley",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 77000,
+      "estimatedCostOfAttendanceOutOfState": 77000,
+      "averageNetPrice": 33000,
+      "financialAidNotes": "0 athletic aid, generous merit scholarships"
+    },
+    "estimatedDriveHoursFromDelco": 0.6
+  },
+  {
+    "id": "arcadia",
+    "schoolName": "Arcadia University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Glenside",
+    "conference": "MAC Freedom",
+    "mensSoccerUrl": "https://arcadiaknights.com/sports/mens-soccer",
+    "rosterUrl": "https://arcadiaknights.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Rob Nydick",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Sam Kessinger",
+        "classYear": "JR"
+      },
+      {
+        "name": "Oliver Morlan",
+        "classYear": "SO"
+      },
+      {
+        "name": "Randy Heidorn",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 66000,
+      "estimatedCostOfAttendanceOutOfState": 66000,
+      "averageNetPrice": 29000,
+      "financialAidNotes": "0 athletic aid, merit awards up to $30k"
+    },
+    "estimatedDriveHoursFromDelco": 0.5
+  },
+  {
+    "id": "eastern",
+    "schoolName": "Eastern University",
+    "division": "D3",
+    "state": "PA",
+    "city": "St. Davids",
+    "conference": "MAC Commonwealth",
+    "mensSoccerUrl": "https://goeasterneagles.com/sports/mens-soccer",
+    "rosterUrl": "https://goeasterneagles.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jeremy Biddle",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Michael Arcuri",
+        "classYear": "JR"
+      },
+      {
+        "name": "Will Schade",
+        "classYear": "SO"
+      },
+      {
+        "name": "Jondre Guzman",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 53000,
+      "estimatedCostOfAttendanceOutOfState": 53000,
+      "averageNetPrice": 24000,
+      "financialAidNotes": "0 athletic aid, Christian institutional grants"
+    },
+    "estimatedDriveHoursFromDelco": 0.25
+  },
+  {
+    "id": "widener",
+    "schoolName": "Widener University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Chester",
+    "conference": "MAC Commonwealth",
+    "mensSoccerUrl": "https://widenerpride.com/sports/mens-soccer",
+    "rosterUrl": "https://widenerpride.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Ross Liberati",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Tristan Willey",
+        "classYear": "SR",
+        "height": "6'4\"",
+        "hometown": "Bethlehem, PA"
+      },
+      {
+        "name": "Chemar Hamilton",
+        "classYear": "SO",
+        "height": "6'0\"",
+        "hometown": "Tampa, FL"
+      },
+      {
+        "name": "Matthew Carr",
+        "classYear": "FR",
+        "height": "5'11\"",
+        "hometown": "Newfield, NJ"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 68000,
+      "estimatedCostOfAttendanceOutOfState": 68000,
+      "averageNetPrice": 32000,
+      "financialAidNotes": "0 athletic aid, strong merit packaging"
+    },
+    "estimatedDriveHoursFromDelco": 0.2
+  },
+  {
+    "id": "cairn",
+    "schoolName": "Cairn University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Langhorne",
+    "conference": "United East",
+    "mensSoccerUrl": "https://cairnhighlanders.com/sports/mens-soccer",
+    "rosterUrl": "https://cairnhighlanders.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Luke Colvin",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Xander Jakeway",
+        "classYear": "SR"
+      },
+      {
+        "name": "Zach Burres",
+        "classYear": "SO"
+      },
+      {
+        "name": "Naseen Clark",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 45000,
+      "estimatedCostOfAttendanceOutOfState": 45000,
+      "averageNetPrice": 23000,
+      "financialAidNotes": "0 athletic aid, merit/need aid"
+    },
+    "estimatedDriveHoursFromDelco": 0.7
+  },
+  {
+    "id": "psu-abington",
+    "schoolName": "Penn State Abington",
+    "division": "D3",
+    "state": "PA",
+    "city": "Abington",
+    "conference": "United East",
+    "mensSoccerUrl": "https://abingtonsports.com/sports/mens-soccer",
+    "rosterUrl": "https://abingtonsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Daniel Farace",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Keegan Courduff",
+        "classYear": "SO"
+      },
+      {
+        "name": "Hector Ortiz",
+        "classYear": "FR"
+      },
+      {
+        "name": "Angelo D'Asti",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 29000,
+      "estimatedCostOfAttendanceOutOfState": 41000,
+      "averageNetPrice": 19000,
+      "financialAidNotes": "0 athletic aid, PSU state tuition rates"
+    },
+    "estimatedDriveHoursFromDelco": 0.55
+  },
+  {
+    "id": "psu-brandywine",
+    "schoolName": "Penn State Brandywine",
+    "division": "D3",
+    "state": "PA",
+    "city": "Media",
+    "conference": "United East",
+    "mensSoccerUrl": "https://psubrandywineathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://psubrandywineathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jesse Zeger",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Braden Warwick",
+        "classYear": "SO",
+        "hometown": "Ridley Park, PA (Ridley)"
+      },
+      {
+        "name": "Will Manarpaac",
+        "classYear": "SO",
+        "hometown": "Boerne, TX"
+      },
+      {
+        "name": "John Schild",
+        "classYear": "FR",
+        "hometown": "West Chester, PA"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 29000,
+      "estimatedCostOfAttendanceOutOfState": 41000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "0 athletic aid, Delco local commuter option"
+    },
+    "estimatedDriveHoursFromDelco": 0.1
+  },
+  {
+    "id": "brynathyn",
+    "schoolName": "Bryn Athyn College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Bryn Athyn",
+    "conference": "United East",
+    "mensSoccerUrl": "https://brynathynathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://brynathynathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Bill Clark",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Brett Cloud",
+        "classYear": "SR",
+        "hometown": "Delran, NJ"
+      },
+      {
+        "name": "Troy Billingslea",
+        "classYear": "SO",
+        "hometown": "Red Lion, PA"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 43000,
+      "estimatedCostOfAttendanceOutOfState": 43000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "0 athletic aid, merit scholarships"
+    },
+    "estimatedDriveHoursFromDelco": 0.6
+  },
+  {
+    "id": "neumann",
+    "schoolName": "Neumann University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Aston",
+    "conference": "Atlantic East",
+    "mensSoccerUrl": "https://neumannathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://neumannathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Tim Hollenback",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Seiya Sato",
+        "classYear": "JR",
+        "hometown": "Sendai, Japan"
+      },
+      {
+        "name": "Sebastien Richardson",
+        "classYear": "SO",
+        "hometown": "Santiago, Chile"
+      },
+      {
+        "name": "Carson Metzger",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 52000,
+      "estimatedCostOfAttendanceOutOfState": 52000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "0 athletic aid, local Aston Delco location"
+    },
+    "estimatedDriveHoursFromDelco": 0.2
+  },
+  {
+    "id": "immaculata",
+    "schoolName": "Immaculata University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Immaculata",
+    "conference": "Atlantic East",
+    "mensSoccerUrl": "https://gomightymacs.com/sports/mens-soccer",
+    "rosterUrl": "https://gomightymacs.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Rich Melito",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Matteo Paolillo",
+        "classYear": "JR",
+        "hometown": "Manalapan, NJ"
+      },
+      {
+        "name": "Tyler Guise",
+        "classYear": "SO",
+        "hometown": "Reading, PA"
+      },
+      {
+        "name": "Luca Greppellini",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 51000,
+      "estimatedCostOfAttendanceOutOfState": 51000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "0 athletic aid, institutional grants"
+    },
+    "estimatedDriveHoursFromDelco": 0.35
+  },
+  {
+    "id": "gwyneddmercy",
+    "schoolName": "Gwynedd Mercy University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Gwynedd Valley",
+    "conference": "Atlantic East",
+    "mensSoccerUrl": "https://gmercyuathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://gmercyuathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dave Fetzer",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Cody Sell",
+        "classYear": "JR"
+      },
+      {
+        "name": "Ethan Zimmerman",
+        "classYear": "SO"
+      },
+      {
+        "name": "Kevin Harter",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 53000,
+      "estimatedCostOfAttendanceOutOfState": 53000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "0 athletic aid, merit discounts"
+    },
+    "estimatedDriveHoursFromDelco": 0.55
+  },
+  {
+    "id": "delval",
+    "schoolName": "Delaware Valley University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Doylestown",
+    "conference": "MAC Freedom",
+    "mensSoccerUrl": "https://delvalathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://delvalathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Chris Curotto",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Nick Becker",
+        "classYear": "SR"
+      },
+      {
+        "name": "Aiden Lane",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 60000,
+      "estimatedCostOfAttendanceOutOfState": 60000,
+      "averageNetPrice": 29000,
+      "financialAidNotes": "0 athletic aid, merit packages"
+    },
+    "estimatedDriveHoursFromDelco": 0.85
+  },
+  {
+    "id": "fandm",
+    "schoolName": "Franklin & Marshall College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Lancaster",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://godiplomats.com/sports/mens-soccer",
+    "rosterUrl": "https://godiplomats.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dan Wagner",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Diego Moreno",
+        "classYear": "JR"
+      },
+      {
+        "name": "Sam Sellitti",
+        "classYear": "SO"
+      },
+      {
+        "name": "Chancey Garcia",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 88000,
+      "estimatedCostOfAttendanceOutOfState": 88000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "0 athletic aid, 100% met need"
+    },
+    "estimatedDriveHoursFromDelco": 1.35,
+    "campUrl": "https://dipsoccer.com"
+  },
+  {
+    "id": "messiah",
+    "schoolName": "Messiah University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Mechanicsburg",
+    "conference": "MAC Commonwealth",
+    "mensSoccerUrl": "https://gomessiah.com/sports/mens-soccer",
+    "rosterUrl": "https://gomessiah.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Brad McCarty",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Kessler Forrest",
+        "classYear": "JR"
+      },
+      {
+        "name": "Killian O'Reilly",
+        "classYear": "JR"
+      },
+      {
+        "name": "Samuel Godoy",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 55000,
+      "estimatedCostOfAttendanceOutOfState": 55000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "D3 national powerhouse"
+    },
+    "estimatedDriveHoursFromDelco": 2.1,
+    "campUrl": "https://gomessiahcamps.com"
+  },
+  {
+    "id": "cmu",
+    "schoolName": "Carnegie Mellon University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Pittsburgh",
+    "conference": "UAA",
+    "mensSoccerUrl": "https://athletics.cmu.edu/sports/msoc",
+    "rosterUrl": "https://athletics.cmu.edu/sports/msoc/roster",
+    "headCoach": {
+      "name": "Brandon Palmer",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Knox Foster",
+        "classYear": "JR"
+      },
+      {
+        "name": "Kai Yamamoto",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 86000,
+      "estimatedCostOfAttendanceOutOfState": 86000,
+      "averageNetPrice": 33000,
+      "financialAidNotes": "0 athletic aid, elite academic UAA"
+    },
+    "estimatedDriveHoursFromDelco": 5.0
+  },
+  {
+    "id": "gettysburg",
+    "schoolName": "Gettysburg College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Gettysburg",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://gettysburgsports.com/sports/mens-soccer",
+    "rosterUrl": "https://gettysburgsports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Mark Mettrick",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Owen Allen-Worrall",
+        "classYear": "SR",
+        "hometown": "Baltimore, MD"
+      },
+      {
+        "name": "James Anroman",
+        "classYear": "JR"
+      },
+      {
+        "name": "Topher Kelley",
+        "classYear": "SO",
+        "hometown": "New Hope, PA"
+      },
+      {
+        "name": "Anthony Marziliano",
+        "classYear": "FR",
+        "hometown": "Laval, QC"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 82000,
+      "estimatedCostOfAttendanceOutOfState": 82000,
+      "averageNetPrice": 35000,
+      "financialAidNotes": "0 athletic aid, merit/need aid"
+    },
+    "estimatedDriveHoursFromDelco": 2.4
+  },
+  {
+    "id": "dickinson",
+    "schoolName": "Dickinson College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Carlisle",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://dickinsonathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://dickinsonathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jorge Chapoy",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Aidan George",
+        "classYear": "SR"
+      },
+      {
+        "name": "Josh Bouchard",
+        "classYear": "JR",
+        "hometown": "Chalfont, PA"
+      },
+      {
+        "name": "Gavin Marr",
+        "classYear": "JR",
+        "hometown": "Reading, PA"
+      },
+      {
+        "name": "Luka Cuk",
+        "classYear": "SO",
+        "hometown": "Port Chester, NY"
+      },
+      {
+        "name": "Colin Harkleroad",
+        "classYear": "FR",
+        "hometown": "Columbus, NJ"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 83000,
+      "estimatedCostOfAttendanceOutOfState": 83000,
+      "averageNetPrice": 37000,
+      "financialAidNotes": "0 athletic aid, merit scholarships"
+    },
+    "estimatedDriveHoursFromDelco": 2.2
+  },
+  {
+    "id": "moravian",
+    "schoolName": "Moravian University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Bethlehem",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://moraviansports.com/sports/mens-soccer",
+    "rosterUrl": "https://moraviansports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Bob Wilkinson",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Casey Prajzner",
+        "classYear": "SR",
+        "hometown": "Furlong, PA"
+      },
+      {
+        "name": "Peter Louvaris",
+        "classYear": "SO",
+        "hometown": "Sewell, NJ"
+      },
+      {
+        "name": "Joey Varano",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 68000,
+      "estimatedCostOfAttendanceOutOfState": 68000,
+      "averageNetPrice": 31000,
+      "financialAidNotes": "0 athletic aid, Landmark Conference"
+    },
+    "estimatedDriveHoursFromDelco": 1.25
+  },
+  {
+    "id": "scranton",
+    "schoolName": "University of Scranton",
+    "division": "D3",
+    "state": "PA",
+    "city": "Scranton",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://athletics.scranton.edu/sports/mens-soccer",
+    "rosterUrl": "https://athletics.scranton.edu/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Matt Pivirotto",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Charlie Smith",
+        "classYear": "SR"
+      },
+      {
+        "name": "Justin Scavalla",
+        "classYear": "JR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 69000,
+      "estimatedCostOfAttendanceOutOfState": 69000,
+      "averageNetPrice": 36000,
+      "financialAidNotes": "0 athletic aid, merit packages"
+    },
+    "estimatedDriveHoursFromDelco": 2.4
+  },
+  {
+    "id": "susquehanna",
+    "schoolName": "Susquehanna University",
+    "division": "D3",
+    "state": "PA",
+    "city": "Selinsgrove",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://suriverhawks.com/sports/mens-soccer",
+    "rosterUrl": "https://suriverhawks.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Jim Findlay",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Finn Kramer",
+        "classYear": "JR"
+      },
+      {
+        "name": "Jason Krum",
+        "classYear": "SO"
+      },
+      {
+        "name": "Ryan Becker",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 71000,
+      "estimatedCostOfAttendanceOutOfState": 71000,
+      "averageNetPrice": 27000,
+      "financialAidNotes": "0 athletic aid, generous merit awards"
+    },
+    "estimatedDriveHoursFromDelco": 2.75
+  },
+  {
+    "id": "juniata",
+    "schoolName": "Juniata College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Huntingdon",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://juniatasports.net/sports/msoc",
+    "rosterUrl": "https://juniatasports.net/sports/msoc/roster",
+    "headCoach": {
+      "name": "Dan Dubois",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Maxwell Mattioni",
+        "classYear": "SR"
+      },
+      {
+        "name": "Anthony Winkler",
+        "classYear": "JR"
+      },
+      {
+        "name": "Aryan Yogesh",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 68000,
+      "estimatedCostOfAttendanceOutOfState": 68000,
+      "averageNetPrice": 32000,
+      "financialAidNotes": "0 athletic aid, merit/need aid"
+    },
+    "estimatedDriveHoursFromDelco": 3.5
+  },
+  {
+    "id": "etown",
+    "schoolName": "Elizabethtown College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Elizabethtown",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://etownbluejays.com/sports/mens-soccer",
+    "rosterUrl": "https://etownbluejays.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Skip Roderick",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Sam Frey",
+        "classYear": "JR"
+      },
+      {
+        "name": "Logan Sumner",
+        "classYear": "SO"
+      },
+      {
+        "name": "Will Peck",
+        "classYear": "SO"
+      },
+      {
+        "name": "Hans Bober",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Low",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 67000,
+      "estimatedCostOfAttendanceOutOfState": 67000,
+      "averageNetPrice": 26000,
+      "financialAidNotes": "0 athletic aid, historic D3 power"
+    },
+    "estimatedDriveHoursFromDelco": 1.5
+  },
+  {
+    "id": "lvc",
+    "schoolName": "Lebanon Valley College",
+    "division": "D3",
+    "state": "PA",
+    "city": "Annville",
+    "conference": "MAC Freedom",
+    "mensSoccerUrl": "https://godutchmen.com/sports/mens-soccer",
+    "rosterUrl": "https://godutchmen.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Charlie Grimes",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Ryan Simonette",
+        "classYear": "JR"
+      },
+      {
+        "name": "Ethan Bazydola",
+        "classYear": "JR"
+      },
+      {
+        "name": "Aaron Wilczek",
+        "classYear": "SO"
+      },
+      {
+        "name": "Collin Stump",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 66000,
+      "estimatedCostOfAttendanceOutOfState": 66000,
+      "averageNetPrice": 30000,
+      "financialAidNotes": "0 athletic aid, merit discounts"
+    },
+    "estimatedDriveHoursFromDelco": 1.75
+  },
+  {
+    "id": "rowan",
+    "schoolName": "Rowan University",
+    "division": "D3",
+    "state": "NJ",
+    "city": "Glassboro",
+    "conference": "NJAC",
+    "mensSoccerUrl": "https://rowanathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://rowanathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Scott Baker",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Mike Moore",
+        "classYear": "JR",
+        "height": "6'2\""
+      },
+      {
+        "name": "C.J. Norton",
+        "classYear": "SO",
+        "height": "6'5\"",
+        "hometown": "Lewes, DE"
+      },
+      {
+        "name": "Shane Merklein",
+        "classYear": "SO",
+        "height": "5'9\""
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 28000,
+      "estimatedCostOfAttendanceOutOfState": 40000,
+      "averageNetPrice": 19000,
+      "financialAidNotes": "NJAC powerhouse; close to Delco"
+    },
+    "estimatedDriveHoursFromDelco": 0.65,
+    "campUrl": "https://rumsclinics.com"
+  },
+  {
+    "id": "tcnj",
+    "schoolName": "The College of New Jersey",
+    "division": "D3",
+    "state": "NJ",
+    "city": "Ewing",
+    "conference": "NJAC",
+    "mensSoccerUrl": "https://tcnjathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://tcnjathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Frank Lawson",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Sean Najdzinowicz",
+        "classYear": "JR"
+      },
+      {
+        "name": "Carson Dodd",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 34000,
+      "estimatedCostOfAttendanceOutOfState": 48000,
+      "averageNetPrice": 21000,
+      "financialAidNotes": "Top public academic D3"
+    },
+    "estimatedDriveHoursFromDelco": 0.9,
+    "campUrl": "https://tcnjsportscamps.com"
+  },
+  {
+    "id": "stevens",
+    "schoolName": "Stevens Institute of Technology",
+    "division": "D3",
+    "state": "NJ",
+    "city": "Hoboken",
+    "conference": "MAC Freedom",
+    "mensSoccerUrl": "https://stevensducks.com/sports/mens-soccer",
+    "rosterUrl": "https://stevensducks.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Dale Jordan",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Aden Parikh",
+        "classYear": "SR"
+      },
+      {
+        "name": "Sebastian Martinez",
+        "classYear": "SO"
+      },
+      {
+        "name": "Bobby Boyke",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 78000,
+      "estimatedCostOfAttendanceOutOfState": 78000,
+      "averageNetPrice": 40000,
+      "financialAidNotes": "0 athletic aid, high ROI STEM"
+    },
+    "estimatedDriveHoursFromDelco": 1.95
+  },
+  {
+    "id": "drew",
+    "schoolName": "Drew University",
+    "division": "D3",
+    "state": "NJ",
+    "city": "Madison",
+    "conference": "Landmark",
+    "mensSoccerUrl": "https://drewrangers.com/sports/mens-soccer",
+    "rosterUrl": "https://drewrangers.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Lenny Armuth",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Donovan Friedhoff",
+        "classYear": "JR"
+      },
+      {
+        "name": "Jacob Avni",
+        "classYear": "SO"
+      },
+      {
+        "name": "Ilyas Alkan",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 71000,
+      "estimatedCostOfAttendanceOutOfState": 71000,
+      "averageNetPrice": 31000,
+      "financialAidNotes": "0 athletic aid, merit scholarships"
+    },
+    "estimatedDriveHoursFromDelco": 1.85
+  },
+  {
+    "id": "stockton",
+    "schoolName": "Stockton University",
+    "division": "D3",
+    "state": "NJ",
+    "city": "Galloway",
+    "conference": "NJAC",
+    "mensSoccerUrl": "https://stocktonathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://stocktonathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Greg Ruttler",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Collin Peters",
+        "classYear": "SR"
+      },
+      {
+        "name": "Brady Bartletta",
+        "classYear": "JR"
+      },
+      {
+        "name": "Dan Raivitch",
+        "classYear": "SO"
+      },
+      {
+        "name": "Cole Butler",
+        "classYear": "FR"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 29000,
+      "estimatedCostOfAttendanceOutOfState": 42000,
+      "averageNetPrice": 18000,
+      "financialAidNotes": "0 athletic aid, NJAC program"
+    },
+    "estimatedDriveHoursFromDelco": 1.5
+  },
+  {
+    "id": "jhu",
+    "schoolName": "Johns Hopkins University",
+    "division": "D3",
+    "state": "MD",
+    "city": "Baltimore",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://hopkinssports.com/sports/mens-soccer",
+    "rosterUrl": "https://hopkinssports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Craig Appleby",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Ryan Aiken",
+        "classYear": "SR",
+        "hometown": "Orinda, CA"
+      },
+      {
+        "name": "John Ghanem",
+        "classYear": "JR",
+        "hometown": "Orlando, FL"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 88000,
+      "estimatedCostOfAttendanceOutOfState": 88000,
+      "averageNetPrice": 24000,
+      "financialAidNotes": "0 athletic aid, 100% need-based aid"
+    },
+    "estimatedDriveHoursFromDelco": 1.75
+  },
+  {
+    "id": "washington-college",
+    "schoolName": "Washington College",
+    "division": "D3",
+    "state": "MD",
+    "city": "Chestertown",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://washingtoncollegesports.com/sports/mens-soccer",
+    "rosterUrl": "https://washingtoncollegesports.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Roy Dunshee",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Hannes Budde",
+        "classYear": "JR"
+      },
+      {
+        "name": "Calvin Field",
+        "classYear": "SO"
+      },
+      {
+        "name": "Nick Dressie",
+        "classYear": "SO"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 69000,
+      "estimatedCostOfAttendanceOutOfState": 69000,
+      "averageNetPrice": 30000,
+      "financialAidNotes": "0 athletic aid, merit scholarships"
+    },
+    "estimatedDriveHoursFromDelco": 1.5
+  },
+  {
+    "id": "mcdaniel",
+    "schoolName": "McDaniel College",
+    "division": "D3",
+    "state": "MD",
+    "city": "Westminster",
+    "conference": "Centennial",
+    "mensSoccerUrl": "https://mcdanielathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://mcdanielathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Steve Corrieri",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Tate Roth",
+        "classYear": "SR",
+        "hometown": "Lancaster, PA"
+      },
+      {
+        "name": "Joseph Peloquin",
+        "classYear": "JR",
+        "hometown": "Manchester, MD"
+      },
+      {
+        "name": "Ben Cunningham",
+        "classYear": "SO",
+        "hometown": "Stewartstown, PA"
+      },
+      {
+        "name": "Gavin Yartymyk",
+        "classYear": "FR",
+        "hometown": "Macungie, PA"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 66000,
+      "estimatedCostOfAttendanceOutOfState": 66000,
+      "averageNetPrice": 28000,
+      "financialAidNotes": "0 athletic aid, Centennial Conference"
+    },
+    "estimatedDriveHoursFromDelco": 2.25
+  },
+  {
+    "id": "salisbury",
+    "schoolName": "Salisbury University",
+    "division": "D3",
+    "state": "MD",
+    "city": "Salisbury",
+    "conference": "C2C",
+    "mensSoccerUrl": "https://suseagulls.com/sports/mens-soccer",
+    "rosterUrl": "https://suseagulls.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Zack Mills",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Nate Jones",
+        "classYear": "SR"
+      },
+      {
+        "name": "Will Noble",
+        "classYear": "SR"
+      },
+      {
+        "name": "Drew Kaifer",
+        "classYear": "SO"
+      },
+      {
+        "name": "Zach Johnson",
+        "classYear": "FR",
+        "hometown": "Freeland, MD"
+      }
+    ],
+    "classOf2029NeedScore": "Medium",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 26000,
+      "estimatedCostOfAttendanceOutOfState": 38000,
+      "averageNetPrice": 19000,
+      "financialAidNotes": "0 athletic aid, strong D3 tradition"
+    },
+    "estimatedDriveHoursFromDelco": 2.6
+  },
+  {
+    "id": "stmarys-md",
+    "schoolName": "St. Mary's College of Maryland",
+    "division": "D3",
+    "state": "MD",
+    "city": "St. Mary's City",
+    "conference": "United East",
+    "mensSoccerUrl": "https://smcmathletics.com/sports/mens-soccer",
+    "rosterUrl": "https://smcmathletics.com/sports/mens-soccer/roster",
+    "headCoach": {
+      "name": "Alun Oliver",
+      "title": "Head Coach"
+    },
+    "goalkeepers": [
+      {
+        "name": "Jordon Eckman",
+        "classYear": "SR",
+        "hometown": "Fallston, MD"
+      },
+      {
+        "name": "Zack Reed",
+        "classYear": "SR"
+      },
+      {
+        "name": "Aiden Peterson",
+        "classYear": "JR",
+        "hometown": "Stafford, VA"
+      },
+      {
+        "name": "John Watts",
+        "classYear": "FR",
+        "hometown": "Hollywood, MD"
+      }
+    ],
+    "classOf2029NeedScore": "High",
+    "financialProfile": {
+      "estimatedCostOfAttendanceInState": 31000,
+      "estimatedCostOfAttendanceOutOfState": 46000,
+      "averageNetPrice": 20000,
+      "financialAidNotes": "0 athletic aid, honors college"
+    },
+    "estimatedDriveHoursFromDelco": 3.6
+  }
+]
