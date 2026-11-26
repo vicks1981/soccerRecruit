@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tunnel": "cloudflared tunnel --url http://localhost:5174"
   },
   "dependencies": {
     "lucide-react": "^0.460.0",
