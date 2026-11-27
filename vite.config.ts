@@ -85,6 +85,7 @@ function localStateSyncPlugin(): Plugin {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [react(), localStateSyncPlugin()],
   server: {
     host: true,
