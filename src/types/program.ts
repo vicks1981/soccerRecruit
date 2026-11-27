@@ -1,5 +1,5 @@
 export type Division = 'D1' | 'D2' | 'D3';
-export type StateCode = 'PA' | 'NJ' | 'DE' | 'MD';
+export type StateCode = 'PA' | 'NJ' | 'DE' | 'MD' | 'VA' | 'NC' | 'SC';
 export type ClassNeedScore = 'High' | 'Medium' | 'Low' | 'Unverified';
 
 export interface GoalkeeperEntry {

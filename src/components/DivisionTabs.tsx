@@ -22,7 +22,7 @@ export const DivisionTabs: React.FC<DivisionTabsProps> = ({
   };
 
   const tabs: { id: DivisionFilter; label: string; count: number; subtitle: string }[] = [
-    { id: 'ALL', label: 'All Programs', count: counts.ALL, subtitle: 'PA / NJ / DE / MD' },
+    { id: 'ALL', label: 'All Programs', count: counts.ALL, subtitle: 'PA / NJ / DE / MD / VA / NC / SC' },
     { id: 'D1', label: 'Division I', count: counts.D1, subtitle: 'June 15 Contact Rule' },
     { id: 'D2', label: 'Division II', count: counts.D2, subtitle: 'June 15 Contact Rule' },
     { id: 'D3', label: 'Division III', count: counts.D3, subtitle: 'Open Academic / Recruiting' },

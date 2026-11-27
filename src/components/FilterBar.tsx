@@ -80,11 +80,14 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             }
             className="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-900 focus:border-[#1E3A8A] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E3A8A]/20"
           >
-            <option value="ALL">All States (PA/NJ/DE/MD)</option>
+            <option value="ALL">All States (Mid-Atlantic &amp; Carolinas)</option>
             <option value="PA">Pennsylvania (PA)</option>
             <option value="NJ">New Jersey (NJ)</option>
             <option value="DE">Delaware (DE)</option>
             <option value="MD">Maryland (MD)</option>
+            <option value="VA">Virginia (VA)</option>
+            <option value="NC">North Carolina (NC)</option>
+            <option value="SC">South Carolina (SC)</option>
           </select>
         </div>
 

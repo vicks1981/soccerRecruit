@@ -581,7 +581,7 @@ export const App: React.FC = () => {
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-200 border border-emerald-400/30">
                     <MapPin className="h-3 w-3" />
-                    Delco, PA Base (PA &bull; NJ &bull; DE &bull; MD)
+                    Delco, PA Base (PA &bull; NJ &bull; DE &bull; MD &bull; VA &bull; NC &bull; SC)
                   </span>
                 </div>
                 <h1 className="mt-1.5 text-2xl font-extrabold tracking-tight sm:text-3xl">
@@ -590,7 +590,7 @@ export const App: React.FC = () => {
                 <p className="mt-1 text-xs text-slate-300 sm:text-sm">
                   Goalkeeper depth chart intelligence, financial aid net-price
                   modeling, and NCAA June 15, 2027 compliance tracking across{' '}
-                  {programs.length} regional programs.
+                  {programs.length} Mid-Atlantic &amp; Carolinas programs.
                 </p>
               </div>
             </div>
@@ -599,13 +599,15 @@ export const App: React.FC = () => {
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
               <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
                 <div className="text-[11px] font-medium text-blue-200">
-                  Regional Programs
+                  Tracked Programs
                 </div>
                 <div className="mt-0.5 text-xl font-extrabold">
                   {programs.length}
                 </div>
                 <div className="text-[10px] text-slate-300">
-                  26 D1 &bull; 21 D2 &bull; 35 D3
+                  {programs.filter((p) => p.division === 'D1').length} D1 &bull;{' '}
+                  {programs.filter((p) => p.division === 'D2').length} D2 &bull;{' '}
+                  {programs.filter((p) => p.division === 'D3').length} D3
                 </div>
               </div>
               <div className="rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm border border-white/10">
